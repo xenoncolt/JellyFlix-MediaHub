@@ -65,8 +65,8 @@
     <Reference Include="Fizzler, Version=1.2.1.0, Culture=neutral, PublicKeyToken=4ebff4844e382110, processorArchitecture=MSIL">
       <HintPath>packages\Fizzler.1.2.1\lib\netstandard2.0\Fizzler.dll</HintPath>
     </Reference>
-    <Reference Include="FontAwesome.WinForms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\FontAwesome.WinForms.1.0.5\lib\net472\FontAwesome.WinForms.dll</HintPath>
+    <Reference Include="FontAwesomeIcons">
+      <HintPath>..\FontAwesome-WindowsForms\FontAwesomeIcons\bin\Debug\FontAwesomeIcons.dll</HintPath>
     </Reference>
     <Reference Include="GumroadLicensing, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\GumroadLicensing.2.0.2\lib\net45\GumroadLicensing.dll</HintPath>
@@ -357,6 +357,7 @@
     <Compile Include="UI\TestPage.Designer.cs">
       <DependentUpon>TestPage.cs</DependentUpon>
     </Compile>
+    <None Include="Resources\Icon\user-tie-solid.png" />
     <None Include="Resources\Img\unknown.png" />
     <EmbeddedResource Include="UI\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -376,6 +377,9 @@
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
+    <EmbeddedResource Include="UI\SignUp.resx">
+      <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\TestPage.resx">
       <DependentUpon>TestPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -394,8 +398,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\Icon\" />
     <Folder Include="Schema\" />
+    <Folder Include="Utils\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">

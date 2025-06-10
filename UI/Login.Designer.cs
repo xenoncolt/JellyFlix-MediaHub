@@ -38,8 +38,10 @@
             this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
             this.UsernameTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             this.WrittingPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.AvatarBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.PanelElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.WrittingPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AvatarBox)).BeginInit();
             this.SuspendLayout();
             // 
             // Elipse
@@ -104,7 +106,7 @@
             this.LoginButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.LoginButton.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.LoginButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.LoginButton.FillColor = System.Drawing.Color.RoyalBlue;
+            this.LoginButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(103)))), ((int)(((byte)(237)))));
             this.LoginButton.FillColor2 = System.Drawing.Color.MidnightBlue;
             this.LoginButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LoginButton.ForeColor = System.Drawing.Color.White;
@@ -125,7 +127,7 @@
             this.SignupButton.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.SignupButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.SignupButton.FillColor = System.Drawing.Color.MidnightBlue;
-            this.SignupButton.FillColor2 = System.Drawing.Color.RoyalBlue;
+            this.SignupButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(103)))), ((int)(((byte)(237)))));
             this.SignupButton.Font = new System.Drawing.Font("Comic Sans MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SignupButton.ForeColor = System.Drawing.Color.White;
             this.SignupButton.Location = new System.Drawing.Point(31, 372);
@@ -133,6 +135,7 @@
             this.SignupButton.Size = new System.Drawing.Size(168, 47);
             this.SignupButton.TabIndex = 3;
             this.SignupButton.Text = "Sign Up";
+            this.SignupButton.Click += new System.EventHandler(this.SignupButton_Click);
             // 
             // materialTextBox1
             // 
@@ -140,11 +143,11 @@
             this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.materialTextBox1.Depth = 0;
             this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox1.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.materialTextBox1.ForeColor = System.Drawing.Color.Black;
             this.materialTextBox1.Hint = "Password";
             this.materialTextBox1.LeadingIcon = null;
             this.materialTextBox1.LeaveOnEnterKey = true;
-            this.materialTextBox1.Location = new System.Drawing.Point(34, 250);
+            this.materialTextBox1.Location = new System.Drawing.Point(34, 272);
             this.materialTextBox1.MaxLength = 50;
             this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
             this.materialTextBox1.Multiline = false;
@@ -167,7 +170,7 @@
             this.UsernameTextBox.Hint = "Username";
             this.UsernameTextBox.LeadingIcon = null;
             this.UsernameTextBox.LeaveOnEnterKey = true;
-            this.UsernameTextBox.Location = new System.Drawing.Point(34, 172);
+            this.UsernameTextBox.Location = new System.Drawing.Point(34, 197);
             this.UsernameTextBox.MaxLength = 32767;
             this.UsernameTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.UsernameTextBox.Name = "UsernameTextBox";
@@ -189,8 +192,9 @@
             // 
             // WrittingPanel
             // 
-            this.WrittingPanel.BackColor = System.Drawing.Color.DarkGray;
+            this.WrittingPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(134)))), ((int)(((byte)(198)))), ((int)(((byte)(243)))));
             this.WrittingPanel.BorderRadius = 400;
+            this.WrittingPanel.Controls.Add(this.AvatarBox);
             this.WrittingPanel.Controls.Add(this.UsernameTextBox);
             this.WrittingPanel.Controls.Add(this.materialTextBox1);
             this.WrittingPanel.Controls.Add(this.SignupButton);
@@ -199,6 +203,20 @@
             this.WrittingPanel.Name = "WrittingPanel";
             this.WrittingPanel.Size = new System.Drawing.Size(435, 486);
             this.WrittingPanel.TabIndex = 4;
+            // 
+            // AvatarBox
+            // 
+            this.AvatarBox.BackColor = System.Drawing.Color.Transparent;
+            this.AvatarBox.FillColor = System.Drawing.Color.Transparent;
+            this.AvatarBox.Image = global::JellyFlix_MediaHub.Properties.Resources.user_tie_solid;
+            this.AvatarBox.ImageRotate = 0F;
+            this.AvatarBox.Location = new System.Drawing.Point(158, 36);
+            this.AvatarBox.Name = "AvatarBox";
+            this.AvatarBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.AvatarBox.Size = new System.Drawing.Size(125, 125);
+            this.AvatarBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.AvatarBox.TabIndex = 4;
+            this.AvatarBox.TabStop = false;
             // 
             // PanelElipse
             // 
@@ -221,6 +239,7 @@
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.WrittingPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.AvatarBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -237,5 +256,6 @@
         private MaterialSkin.Controls.MaterialTextBox2 UsernameTextBox;
         private Guna.UI2.WinForms.Guna2Panel WrittingPanel;
         private Guna.UI2.WinForms.Guna2Elipse PanelElipse;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox AvatarBox;
     }
 }

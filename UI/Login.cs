@@ -21,5 +21,13 @@ namespace JellyFlix_MediaHub.UI
         {
 
         }
+
+        private void SignupButton_Click(object sender, EventArgs e)
+        {
+            SignUp signUpForm = new SignUp();
+            signUpForm.Show();
+            signUpForm.FormClosed += (s, args) => Application.Exit();
+            this.Hide();
+        }
     }
 }
