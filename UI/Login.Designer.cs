@@ -35,11 +35,11 @@
             this.MinimizeApp = new Guna.UI2.WinForms.Guna2ControlBox();
             this.LoginButton = new Guna.UI2.WinForms.Guna2GradientButton();
             this.SignupButton = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.materialTextBox1 = new MaterialSkin.Controls.MaterialTextBox();
             this.UsernameTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             this.WrittingPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.AvatarBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.PanelElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.PasswordTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             this.WrittingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarBox)).BeginInit();
             this.SuspendLayout();
@@ -115,6 +115,7 @@
             this.LoginButton.Size = new System.Drawing.Size(168, 47);
             this.LoginButton.TabIndex = 3;
             this.LoginButton.Text = "Login";
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // SignupButton
             // 
@@ -136,28 +137,6 @@
             this.SignupButton.TabIndex = 3;
             this.SignupButton.Text = "Sign Up";
             this.SignupButton.Click += new System.EventHandler(this.SignupButton_Click);
-            // 
-            // materialTextBox1
-            // 
-            this.materialTextBox1.AnimateReadOnly = true;
-            this.materialTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.materialTextBox1.Depth = 0;
-            this.materialTextBox1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialTextBox1.ForeColor = System.Drawing.Color.Black;
-            this.materialTextBox1.Hint = "Password";
-            this.materialTextBox1.LeadingIcon = null;
-            this.materialTextBox1.LeaveOnEnterKey = true;
-            this.materialTextBox1.Location = new System.Drawing.Point(34, 272);
-            this.materialTextBox1.MaxLength = 50;
-            this.materialTextBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialTextBox1.Multiline = false;
-            this.materialTextBox1.Name = "materialTextBox1";
-            this.materialTextBox1.Password = true;
-            this.materialTextBox1.Size = new System.Drawing.Size(373, 50);
-            this.materialTextBox1.TabIndex = 2;
-            this.materialTextBox1.Text = "";
-            this.materialTextBox1.TrailingIcon = null;
-            this.materialTextBox1.UseAccent = false;
             // 
             // UsernameTextBox
             // 
@@ -182,13 +161,15 @@
             this.UsernameTextBox.SelectionLength = 0;
             this.UsernameTextBox.SelectionStart = 0;
             this.UsernameTextBox.ShortcutsEnabled = true;
-            this.UsernameTextBox.Size = new System.Drawing.Size(373, 48);
+            this.UsernameTextBox.ShowAssistiveText = true;
+            this.UsernameTextBox.Size = new System.Drawing.Size(373, 64);
             this.UsernameTextBox.TabIndex = 1;
             this.UsernameTextBox.TabStop = false;
             this.UsernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.UsernameTextBox.TrailingIcon = null;
             this.UsernameTextBox.UseAccent = false;
             this.UsernameTextBox.UseSystemPasswordChar = false;
+            this.UsernameTextBox.Click += new System.EventHandler(this.UsernameTextBox_Click);
             // 
             // WrittingPanel
             // 
@@ -196,9 +177,9 @@
             this.WrittingPanel.BorderRadius = 400;
             this.WrittingPanel.Controls.Add(this.AvatarBox);
             this.WrittingPanel.Controls.Add(this.UsernameTextBox);
-            this.WrittingPanel.Controls.Add(this.materialTextBox1);
             this.WrittingPanel.Controls.Add(this.SignupButton);
             this.WrittingPanel.Controls.Add(this.LoginButton);
+            this.WrittingPanel.Controls.Add(this.PasswordTextBox);
             this.WrittingPanel.Location = new System.Drawing.Point(12, 136);
             this.WrittingPanel.Name = "WrittingPanel";
             this.WrittingPanel.Size = new System.Drawing.Size(435, 486);
@@ -222,6 +203,39 @@
             // 
             this.PanelElipse.BorderRadius = 100;
             this.PanelElipse.TargetControl = this.WrittingPanel;
+            // 
+            // PasswordTextBox
+            // 
+            this.PasswordTextBox.AnimateReadOnly = true;
+            this.PasswordTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PasswordTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.PasswordTextBox.Depth = 0;
+            this.PasswordTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.PasswordTextBox.HideSelection = true;
+            this.PasswordTextBox.Hint = "Password";
+            this.PasswordTextBox.LeadingIcon = null;
+            this.PasswordTextBox.LeaveOnEnterKey = true;
+            this.PasswordTextBox.Location = new System.Drawing.Point(34, 272);
+            this.PasswordTextBox.MaxLength = 32767;
+            this.PasswordTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.PasswordChar = '●';
+            this.PasswordTextBox.PrefixSuffixText = null;
+            this.PasswordTextBox.ReadOnly = false;
+            this.PasswordTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PasswordTextBox.SelectedText = "";
+            this.PasswordTextBox.SelectionLength = 0;
+            this.PasswordTextBox.SelectionStart = 0;
+            this.PasswordTextBox.ShortcutsEnabled = true;
+            this.PasswordTextBox.ShowAssistiveText = true;
+            this.PasswordTextBox.Size = new System.Drawing.Size(373, 64);
+            this.PasswordTextBox.TabIndex = 1;
+            this.PasswordTextBox.TabStop = false;
+            this.PasswordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.PasswordTextBox.TrailingIcon = null;
+            this.PasswordTextBox.UseAccent = false;
+            this.PasswordTextBox.UseSystemPasswordChar = true;
+            this.PasswordTextBox.Click += new System.EventHandler(this.PasswordTextBox_Click);
             // 
             // Login
             // 
@@ -252,10 +266,10 @@
         private Guna.UI2.WinForms.Guna2ControlBox MinimizeApp;
         private Guna.UI2.WinForms.Guna2GradientButton SignupButton;
         private Guna.UI2.WinForms.Guna2GradientButton LoginButton;
-        private MaterialSkin.Controls.MaterialTextBox materialTextBox1;
         private MaterialSkin.Controls.MaterialTextBox2 UsernameTextBox;
         private Guna.UI2.WinForms.Guna2Panel WrittingPanel;
         private Guna.UI2.WinForms.Guna2Elipse PanelElipse;
         private Guna.UI2.WinForms.Guna2CirclePictureBox AvatarBox;
+        private MaterialSkin.Controls.MaterialTextBox2 PasswordTextBox;
     }
 }

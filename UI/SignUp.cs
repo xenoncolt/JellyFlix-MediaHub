@@ -21,5 +21,48 @@ namespace JellyFlix_MediaHub.UI
         {
 
         }
+
+        private void Username_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ConfirmPasswordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ConfirmPasswordTextBox.Text != PasswordTextBox.Text)
+            {
+                ConfirmPassErrorMsg.Visible = true;
+            }
+            else
+            {
+                ConfirmPassErrorMsg.Visible = false;
+            }
+        }
+
+        private void EmailTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PasswordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ConfirmPasswordTextBox.Text != PasswordTextBox.Text)
+            {
+                ConfirmPassErrorMsg.Visible = true;
+            }
+            else
+            {
+                ConfirmPassErrorMsg.Visible = false;
+            }
+
+            if (PasswordTextBox.Text.Length < 4)
+            {
+                PasswordErrorMsg.Visible = true;
+            }
+            else
+            {
+                PasswordErrorMsg.Visible = false;
+            }
+        }
     }
 }

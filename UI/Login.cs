@@ -29,5 +29,38 @@ namespace JellyFlix_MediaHub.UI
             signUpForm.FormClosed += (s, args) => Application.Exit();
             this.Hide();
         }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(UsernameTextBox.Text))
+            {
+                UsernameTextBox.ErrorMessage = "Username is required";
+                UsernameTextBox.SetErrorState(true);
+                
+            } else
+            {
+                UsernameTextBox.SetErrorState(false);
+            }
+
+            if (string.IsNullOrEmpty(PasswordTextBox.Text))
+            {
+                PasswordTextBox.ErrorMessage = "Password is required";
+                PasswordTextBox.SetErrorState(true);
+                
+            } else
+            {
+                PasswordTextBox.SetErrorState(false);
+            }
+        }
+
+        private void UsernameTextBox_Click(object sender, EventArgs e)
+        {
+            UsernameTextBox.SetErrorState(false);
+        }
+
+        private void PasswordTextBox_Click(object sender, EventArgs e)
+        {
+            PasswordTextBox.SetErrorState(false);
+        }
     }
 }
