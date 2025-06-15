@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JellyFlix_MediaHub.Models
 {
-    internal class User
+    public class User
     {
         public int UserId { get; set; }
         public string Username { get; set; }

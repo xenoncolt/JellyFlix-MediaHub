@@ -1,0 +1,75 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using JellyFlix_MediaHub.Utils;
+using JellyFlix_MediaHub.Models;
+using System.Data;
+
+namespace JellyFlix_MediaHub.Data.Handlers
+{
+    internal class UserHandle
+    {
+        public static bool RegisterUser(string username, string email, string password)
+        {
+            try
+            {
+                string salt_pass = PasswordSecure.GenerateSaltPass();
+                string hashed_pass = PasswordSecure.HashPassword(password, salt_pass);
+
+                var parameters = new Dictionary<string, object>
+                {
+                    { "username", username },
+                    { "email", email },
+                    { "password", password },
+                    { "salt", salt_pass },
+                    { "created_date", DateTime.Now }
+                };
+
+                int result = (int)DBOperations.ExecuteOperation(DatabaseOperation.INSERT, "Users", parameters);
+
+                return result > 0;
+            } catch (Exception e)
+            {
+                Console.WriteLine($"Error while registering user: {e.Message}");
+                return false;
+            } 
+        }
+
+        public static User AuthenticateUser(string username, string password)
+        {
+            try
+            {
+                var parameters = new Dictionary<string, object>
+                {
+                    { "username", username }
+                };
+
+                DataTable result = (DataTable)DBOperations.ExecuteOperation(DatabaseOperation.SELECT, "Users", parameters, "username = @username");
+
+                if (result.Rows.Count == 0) return null;
+
+                string stored_hash = result.Rows[0]["password"].ToString();
+                string salt = result.Rows[0]["salt"].ToString();
+
+                if (PasswordSecure.VerifyPassword(password, salt, stored_hash))
+                {
+                    return new User
+                    {
+                        UserId = Convert.ToInt32(result.Rows[0]["user_id"]),
+                        Username = result.Rows[0]["username"].ToString(),
+                        Email = result.Rows[0]["email"].ToString(),
+                        CreatedDate = Convert.ToDateTime(result.Rows[0]["created_date"])
+                    };
+                }
+
+                return null;
+            } catch (Exception e)
+            {
+                Console.WriteLine($"Authentication Error: {e.Message}");
+                return null;
+            }
+        }
+    }
+}
