@@ -53,6 +53,9 @@
     <StartupObject>JellyFlix_MediaHub.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BCrypt.Net-Next, Version=4.0.3.0, Culture=neutral, PublicKeyToken=1e11be04b6288443, processorArchitecture=MSIL">
+      <HintPath>packages\BCrypt.Net-Next.4.0.3\lib\net48\BCrypt.Net-Next.dll</HintPath>
+    </Reference>
     <Reference Include="CommonWin32, Version=2.0.0.0, Culture=neutral, PublicKeyToken=a0a4edcfe233918d, processorArchitecture=MSIL">
       <HintPath>packages\CommonWin32.2.1.0.3\lib\net35-Client\CommonWin32.dll</HintPath>
     </Reference>
@@ -519,6 +522,7 @@
   <ItemGroup>
     <Compile Include="Data\DBManager.cs" />
     <Compile Include="Data\DBOperations.cs" />
+    <Compile Include="Data\Handlers\User.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -534,12 +538,6 @@
     </Compile>
     <Compile Include="UI\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\TestPage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\TestPage.Designer.cs">
-      <DependentUpon>TestPage.cs</DependentUpon>
     </Compile>
     <None Include="Resources\Icon\user-tie-solid.png" />
     <None Include="Resources\Img\unknown.png" />
@@ -563,9 +561,6 @@
     <Content Include="fonts\FontAwesome.otf" />
     <EmbeddedResource Include="UI\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\TestPage.resx">
-      <DependentUpon>TestPage.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
