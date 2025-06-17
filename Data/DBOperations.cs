@@ -95,7 +95,7 @@ namespace JellyFlix_MediaHub.Data
                     sql = $"SELECT {select_columns} FROM {table_name}";
                     if (!string.IsNullOrEmpty(where_clause))
                     {
-                        sql += $"WHERE {where_clause}";
+                        sql += $" WHERE {where_clause}";
                     }
                     return ExecuteQuery(sql, parameters);
 
@@ -109,6 +109,12 @@ namespace JellyFlix_MediaHub.Data
                     string values = string.Join(", ", parameters.Keys.Select(key => "@" + key));
 
                     sql = $"INSERT INTO {table_name} ({columns}) VALUES ({values})";
+                    Console.WriteLine($"Generated SQL: {sql}");
+
+                    foreach (var param in parameters)
+                    {
+                        Console.WriteLine($"Parameter: {param.Key} = {(param.Value == null ? "NULL" : param.Value.ToString())}");
+                    }
                     return ExecuteNonQuery(sql, parameters);
 
                 case DatabaseOperation.UPDATE:

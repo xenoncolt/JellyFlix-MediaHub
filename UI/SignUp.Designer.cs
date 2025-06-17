@@ -312,6 +312,7 @@
             this.SignUpButton.Size = new System.Drawing.Size(168, 51);
             this.SignUpButton.TabIndex = 5;
             this.SignUpButton.Text = "Sign Up";
+            this.SignUpButton.Click += new System.EventHandler(this.SignUpButton_Click);
             // 
             // SignUp
             // 

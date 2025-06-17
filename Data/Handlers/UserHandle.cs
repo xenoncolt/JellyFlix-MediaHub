@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using JellyFlix_MediaHub.Utils;
 using JellyFlix_MediaHub.Models;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace JellyFlix_MediaHub.Data.Handlers
 {
@@ -15,26 +16,36 @@ namespace JellyFlix_MediaHub.Data.Handlers
         {
             try
             {
+                Console.WriteLine($"Attempting to register user: {username}, {email}");
                 string salt_pass = PasswordSecure.GenerateSaltPass();
                 string hashed_pass = PasswordSecure.HashPassword(password, salt_pass);
+                Console.WriteLine("Password hashed successfully");
 
                 var parameters = new Dictionary<string, object>
                 {
                     { "username", username },
                     { "email", email },
-                    { "password", password },
+                    { "password", hashed_pass },
                     { "salt", salt_pass },
                     { "created_date", DateTime.Now }
                 };
 
+                Console.WriteLine("Executing INSERT operation...");
                 int result = (int)DBOperations.ExecuteOperation(DatabaseOperation.INSERT, "Users", parameters);
+                Console.WriteLine($"INSERT operation result: {result}");
 
                 return result > 0;
+            } catch (SqlException e)
+            {
+                Console.WriteLine($"SQL Error Number: {e.Number}");
+                Console.WriteLine($"SQL Error: {e.Message}");
+                return false;
             } catch (Exception e)
             {
-                Console.WriteLine($"Error while registering user: {e.Message}");
+                Console.WriteLine($"Error while registering user: {e.GetType().Name}: {e.Message}");
+                Console.WriteLine($"Stack trace: {e.StackTrace}");
                 return false;
-            } 
+            }
         }
 
         public static User AuthenticateUser(string username, string password)
@@ -46,7 +57,15 @@ namespace JellyFlix_MediaHub.Data.Handlers
                     { "username", username }
                 };
 
-                DataTable result = (DataTable)DBOperations.ExecuteOperation(DatabaseOperation.SELECT, "Users", parameters, "username = @username");
+                object query_result = DBOperations.ExecuteOperation(DatabaseOperation.SELECT, "Users", parameters, "username = @username");
+
+                if (query_result == null)
+                {
+                    Console.WriteLine("No Username and Password Found. So return NULL");
+                    return null;
+                }
+
+                DataTable result = (DataTable)query_result;
 
                 if (result.Rows.Count == 0) return null;
 

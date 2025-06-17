@@ -11,6 +11,7 @@ namespace JellyFlix_MediaHub.Data
     {
         public static string GetConnectionString()
         {
+            Console.WriteLine($"Connection string (without password): {Properties.Settings.Default.DBUsername}");
             return $"Data Source={Properties.Settings.Default.DBServer};" +
                    $"Initial Catalog={Properties.Settings.Default.DBName};" +
                    $"User ID={Properties.Settings.Default.DBUsername};" +

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JellyFlix_MediaHub.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JellyFlix_MediaHub.Data.Handlers;
 
 namespace JellyFlix_MediaHub.UI
 {
@@ -32,11 +34,12 @@ namespace JellyFlix_MediaHub.UI
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
+            bool is_valid = true;
             if (string.IsNullOrEmpty(UsernameTextBox.Text))
             {
                 UsernameTextBox.ErrorMessage = "Username is required";
                 UsernameTextBox.SetErrorState(true);
-                
+                is_valid = false;
             } else
             {
                 UsernameTextBox.SetErrorState(false);
@@ -46,10 +49,22 @@ namespace JellyFlix_MediaHub.UI
             {
                 PasswordTextBox.ErrorMessage = "Password is required";
                 PasswordTextBox.SetErrorState(true);
-                
+                is_valid = false;
             } else
             {
                 PasswordTextBox.SetErrorState(false);
+            }
+
+            if (!is_valid) return;
+
+            User user = UserHandle.AuthenticateUser(UsernameTextBox.Text, PasswordTextBox.Text);
+
+            if (user != null)
+            {
+                MessageBox.Show("Everything ok", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } else
+            {
+                MessageBox.Show("Invalid username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
