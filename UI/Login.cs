@@ -64,7 +64,10 @@ namespace JellyFlix_MediaHub.UI
                 MessageBox.Show("Everything ok", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             } else
             {
-                MessageBox.Show("Invalid username or password", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                UsernameTextBox.ErrorMessage = "Username is incorrect";
+                PasswordTextBox.ErrorMessage = "Password is incorrect";
+                PasswordTextBox.SetErrorState(true);
+                UsernameTextBox.SetErrorState(true);
             }
         }
 
@@ -76,6 +79,22 @@ namespace JellyFlix_MediaHub.UI
         private void PasswordTextBox_Click(object sender, EventArgs e)
         {
             PasswordTextBox.SetErrorState(false);
+        }
+
+        private void PasswordTextBox_TrailingIconClick(object sender, EventArgs e)
+        {
+            PasswordTextBox.UseSystemPasswordChar = !PasswordTextBox.UseSystemPasswordChar;
+
+            if (PasswordTextBox.UseSystemPasswordChar)
+            {
+                PasswordTextBox.TrailingIcon = Properties.Resources.eye_slash_solid;
+                PasswordTextBox.PasswordChar = '●';
+            }
+            else
+            {
+                PasswordTextBox.TrailingIcon = Properties.Resources.eye_solid;
+                PasswordTextBox.PasswordChar = '\0';
+            }
         }
     }
 }

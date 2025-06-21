@@ -540,6 +540,8 @@
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\PasswordSecure.cs" />
+    <None Include="Resources\Icon\eye-solid.png" />
+    <None Include="Resources\Icon\eye-slash-solid.png" />
     <None Include="Resources\Icon\user-tie-solid.png" />
     <None Include="Resources\Img\unknown.png" />
     <EmbeddedResource Include="UI\Login.resx">

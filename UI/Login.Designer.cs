@@ -38,8 +38,8 @@
             this.UsernameTextBox = new MaterialSkin.Controls.MaterialTextBox2();
             this.WrittingPanel = new Guna.UI2.WinForms.Guna2Panel();
             this.AvatarBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            this.PanelElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.PasswordTextBox = new MaterialSkin.Controls.MaterialTextBox2();
+            this.PanelElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.WrittingPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarBox)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +67,7 @@
             this.ClosedApp.HoverState.FillColor = System.Drawing.Color.Maroon;
             this.ClosedApp.HoverState.IconColor = System.Drawing.Color.Maroon;
             this.ClosedApp.IconColor = System.Drawing.Color.White;
-            this.ClosedApp.Location = new System.Drawing.Point(432, 12);
+            this.ClosedApp.Location = new System.Drawing.Point(1059, 12);
             this.ClosedApp.Name = "ClosedApp";
             this.ClosedApp.PressedColor = System.Drawing.Color.White;
             this.ClosedApp.ShowIcon = false;
@@ -88,7 +88,7 @@
             this.MinimizeApp.HoverState.FillColor = System.Drawing.Color.DarkGoldenrod;
             this.MinimizeApp.HoverState.IconColor = System.Drawing.Color.Blue;
             this.MinimizeApp.IconColor = System.Drawing.Color.Black;
-            this.MinimizeApp.Location = new System.Drawing.Point(399, 12);
+            this.MinimizeApp.Location = new System.Drawing.Point(1026, 12);
             this.MinimizeApp.Name = "MinimizeApp";
             this.MinimizeApp.PressedColor = System.Drawing.Color.DimGray;
             this.MinimizeApp.ShowIcon = false;
@@ -180,7 +180,7 @@
             this.WrittingPanel.Controls.Add(this.SignupButton);
             this.WrittingPanel.Controls.Add(this.LoginButton);
             this.WrittingPanel.Controls.Add(this.PasswordTextBox);
-            this.WrittingPanel.Location = new System.Drawing.Point(12, 136);
+            this.WrittingPanel.Location = new System.Drawing.Point(328, 96);
             this.WrittingPanel.Name = "WrittingPanel";
             this.WrittingPanel.Size = new System.Drawing.Size(435, 486);
             this.WrittingPanel.TabIndex = 4;
@@ -198,11 +198,6 @@
             this.AvatarBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.AvatarBox.TabIndex = 4;
             this.AvatarBox.TabStop = false;
-            // 
-            // PanelElipse
-            // 
-            this.PanelElipse.BorderRadius = 100;
-            this.PanelElipse.TargetControl = this.WrittingPanel;
             // 
             // PasswordTextBox
             // 
@@ -232,10 +227,16 @@
             this.PasswordTextBox.TabIndex = 1;
             this.PasswordTextBox.TabStop = false;
             this.PasswordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.PasswordTextBox.TrailingIcon = null;
+            this.PasswordTextBox.TrailingIcon = global::JellyFlix_MediaHub.Properties.Resources.eye_slash_solid;
             this.PasswordTextBox.UseAccent = false;
             this.PasswordTextBox.UseSystemPasswordChar = true;
+            this.PasswordTextBox.TrailingIconClick += new System.EventHandler(this.PasswordTextBox_TrailingIconClick);
             this.PasswordTextBox.Click += new System.EventHandler(this.PasswordTextBox_Click);
+            // 
+            // PanelElipse
+            // 
+            this.PanelElipse.BorderRadius = 100;
+            this.PanelElipse.TargetControl = this.WrittingPanel;
             // 
             // Login
             // 
@@ -243,7 +244,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.BackgroundImage = global::JellyFlix_MediaHub.Properties.Resources.unknown;
-            this.ClientSize = new System.Drawing.Size(464, 742);
+            this.ClientSize = new System.Drawing.Size(1091, 732);
             this.Controls.Add(this.ClosedApp);
             this.Controls.Add(this.MinimizeApp);
             this.Controls.Add(this.WrittingPanel);
