@@ -101,5 +101,10 @@ namespace JellyFlix_MediaHub.UI
                 UsernameErrorMsg.Visible = true;
             }
         }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
