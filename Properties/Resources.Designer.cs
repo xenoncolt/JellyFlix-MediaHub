@@ -73,6 +73,16 @@ namespace JellyFlix_MediaHub.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bars_solid {
+            get {
+                object obj = ResourceManager.GetObject("bars-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye_slash_solid {
             get {
                 object obj = ResourceManager.GetObject("eye-slash-solid", resourceCulture);
@@ -86,6 +96,16 @@ namespace JellyFlix_MediaHub.Properties {
         internal static System.Drawing.Bitmap eye_solid {
             get {
                 object obj = ResourceManager.GetObject("eye-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifying_glass_solid {
+            get {
+                object obj = ResourceManager.GetObject("magnifying-glass-solid", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

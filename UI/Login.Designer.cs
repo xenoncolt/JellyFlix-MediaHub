@@ -191,10 +191,10 @@
             this.AvatarBox.FillColor = System.Drawing.Color.Transparent;
             this.AvatarBox.Image = global::JellyFlix_MediaHub.Properties.Resources.user_tie_solid;
             this.AvatarBox.ImageRotate = 0F;
-            this.AvatarBox.Location = new System.Drawing.Point(158, 36);
+            this.AvatarBox.Location = new System.Drawing.Point(153, 35);
             this.AvatarBox.Name = "AvatarBox";
             this.AvatarBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.AvatarBox.Size = new System.Drawing.Size(125, 125);
+            this.AvatarBox.Size = new System.Drawing.Size(145, 131);
             this.AvatarBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.AvatarBox.TabIndex = 4;
             this.AvatarBox.TabStop = false;
