@@ -73,6 +73,23 @@ namespace JellyFlix_MediaHub.Data.Handlers
                 string stored_hash = result.Rows[0]["password"].ToString();
                 string salt = result.Rows[0]["salt"].ToString();
 
+                string role;
+                switch(result.Rows[0]["role_id"].ToString())
+                {
+                    case "1":
+                        role = "admin";
+                        break;
+                    case "2":
+                        role = "user";
+                        break;
+                    case "3":
+                        role = "premium";
+                        break;
+                    default:
+                        role = "user";
+                        break;
+                }
+
                 if (PasswordSecure.VerifyPassword(password, salt, stored_hash))
                 {
                     return new User
@@ -80,7 +97,7 @@ namespace JellyFlix_MediaHub.Data.Handlers
                         UserId = Convert.ToInt32(result.Rows[0]["user_id"]),
                         Username = result.Rows[0]["username"].ToString(),
                         Email = result.Rows[0]["email"].ToString(),
-                        Role = result.Rows[0]["role_id"].ToString(),
+                        Role = role,
                         CreatedDate = Convert.ToDateTime(result.Rows[0]["created_date"])
                     };
                 }
@@ -113,6 +130,58 @@ namespace JellyFlix_MediaHub.Data.Handlers
             } catch (Exception e)
             {
                 Console.WriteLine($"Error checking Users database: {e.Message}");
+                return false;
+            }
+        }
+
+        public static bool UpdateUser(int userId, string new_username = null, string new_email = null, string new_password = null)
+        {
+            try
+            {
+                var parameters = new Dictionary<string, object>();
+
+                if (!string.IsNullOrEmpty(new_username))
+                {
+                    parameters.Add("username", new_username);
+                }
+
+                if (!string.IsNullOrEmpty(new_email))
+                {
+                    parameters.Add("email", new_email);
+                }
+
+                if (!string.IsNullOrEmpty(new_password))
+                {
+                    string new_salt = PasswordSecure.GenerateSaltPass();
+                    string new_hashed_pass = PasswordSecure.HashPassword(new_password, new_salt);
+                    parameters.Add("password", new_hashed_pass);
+                    parameters.Add("salt", new_salt);
+                }
+
+                if (parameters.Count == 0)
+                {
+                    Console.WriteLine("No fields provided for update");
+                    return false;
+                }
+
+                Console.WriteLine($"Updating user with ID: {userId}");
+                int result = (int)DBOperations.ExecuteOperation(
+                    DatabaseOperation.UPDATE,
+                    "Users",
+                    parameters,
+                    $"user_id = {userId}");
+
+                Console.WriteLine($"UPDATE operation result: {result}");
+                return result > 0;
+            } catch (SqlException e)
+            {
+                Console.WriteLine($"SQL Error Number: {e.Number}");
+                Console.WriteLine($"SQL Error: {e.Message}");
+                return false;
+            } catch (Exception e)
+            {
+                Console.WriteLine($"Error while updating user: {e.GetType().Name}: {e.Message}");
+                Console.WriteLine($"Stack trace: {e.StackTrace}");
                 return false;
             }
         }

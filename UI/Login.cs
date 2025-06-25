@@ -61,7 +61,7 @@ namespace JellyFlix_MediaHub.UI
             if (user != null)
             {
                 // MessageBox.Show("Everything ok", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                MainMenu main_form = new MainMenu();
+                MainMenu main_form = new MainMenu(user);
                 App.Show(main_form, this);
             } else
             {
