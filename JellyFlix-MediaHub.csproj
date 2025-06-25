@@ -546,7 +546,16 @@
     <Compile Include="UI\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\UserProfile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\UserProfile.Designer.cs">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\PasswordSecure.cs" />
+    <EmbeddedResource Include="UI\UserProfile.resx">
+      <DependentUpon>UserProfile.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Resources\Icon\bars-solid.png" />
     <None Include="Resources\Icon\magnifying-glass-solid.png" />
     <None Include="Resources\Icon\arrow-left-solid.png" />
