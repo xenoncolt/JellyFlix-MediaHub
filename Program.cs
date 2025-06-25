@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JellyFlix_MediaHub.UI;
+using JellyFlix_MediaHub.Data.Handlers;
 
 namespace JellyFlix_MediaHub
 {
@@ -17,7 +18,14 @@ namespace JellyFlix_MediaHub
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
+
+            if (UserHandle.IsUsersDBEmpty())
+            {
+                Application.Run(new SignUp());
+            } else
+            {
+                Application.Run(new Login());
+            }
         }
     }
 }

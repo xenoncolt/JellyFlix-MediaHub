@@ -15,14 +15,25 @@ namespace JellyFlix_MediaHub.UI
 {
     public partial class SignUp : Form
     {
-        public SignUp()
+        private Form parent_form;
+        public SignUp(Form parent = null)
         {
             InitializeComponent();
+            parent_form = parent;
         }
 
         private void SignUp_Load(object sender, EventArgs e)
         {
+            if (UserHandle.IsUsersDBEmpty())
+            {
+                SignUpPageTitle.Text = "Admin Registration";
+                SignUpPageTitle.ForeColor = Color.Red;
 
+                if (parent_form == null)
+                {
+                    BackButton.Visible = false;
+                }
+            }
         }
 
         private void Username_TextChanged(object sender, EventArgs e)
@@ -88,15 +99,24 @@ namespace JellyFlix_MediaHub.UI
                 return;
             }
 
-            bool success = UserHandle.RegisterUser(UsernameTextBox.Text, EmailTextBox.Text, PasswordTextBox.Text);
+            bool success;
+
+            if (UserHandle.IsUsersDBEmpty())
+            {
+                success = UserHandle.RegisterUser(UsernameTextBox.Text, EmailTextBox.Text, PasswordTextBox.Text, "admin");
+            } else
+            {
+                success = UserHandle.RegisterUser(UsernameTextBox.Text, EmailTextBox.Text, PasswordTextBox.Text, "user");
+            }
 
             if (success)
             {
-                MessageBox.Show("Registration Success! Now u can test using login", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // MessageBox.Show("Registration Success! Now u can test using login", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Login loginForm = new Login();
                 loginForm.Show();
                 this.Hide();
-            } else
+            }
+            else
             {
                 UsernameErrorMsg.Visible = true;
             }
@@ -104,7 +124,14 @@ namespace JellyFlix_MediaHub.UI
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-
+            if (parent_form != null)
+            {
+                parent_form.Show();
+            } else
+            {
+                Login login_form = new Login();
+                login_form.Show();
+            }
         }
     }
 }

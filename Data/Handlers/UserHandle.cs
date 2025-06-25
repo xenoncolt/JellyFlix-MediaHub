@@ -12,7 +12,7 @@ namespace JellyFlix_MediaHub.Data.Handlers
 {
     internal class UserHandle
     {
-        public static bool RegisterUser(string username, string email, string password)
+        public static bool RegisterUser(string username, string email, string password, string role)
         {
             try
             {
@@ -27,8 +27,8 @@ namespace JellyFlix_MediaHub.Data.Handlers
                     { "email", email },
                     { "password", hashed_pass },
                     { "salt", salt_pass },
-                    { "created_date", DateTime.Now },
-                    { "role", "user" }
+                    { "role", role },
+                    { "created_date", DateTime.Now }
                 };
 
                 Console.WriteLine("Executing INSERT operation...");
@@ -90,6 +90,30 @@ namespace JellyFlix_MediaHub.Data.Handlers
             {
                 Console.WriteLine($"Authentication Error: {e.Message}");
                 return null;
+            }
+        }
+
+        public static bool IsUsersDBEmpty()
+        {
+            try
+            {
+                object result = DBOperations.ExecuteOperation(DatabaseOperation.SELECT, "Users", null, null, "Count(*) AS UserCount");
+
+                if (result == null) return true;
+
+                DataTable data_table = (DataTable)result;
+
+                if (data_table.Rows.Count > 0)
+                {
+                    int user_count = Convert.ToInt32(data_table.Rows[0]["UserCount"]);
+                    return user_count == 0;
+                }
+
+                return true;
+            } catch (Exception e)
+            {
+                Console.WriteLine($"Error checking Users database: {e.Message}");
+                return false;
             }
         }
     }
