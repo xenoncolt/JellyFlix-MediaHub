@@ -27,7 +27,8 @@ namespace JellyFlix_MediaHub.Data.Handlers
                     { "email", email },
                     { "password", hashed_pass },
                     { "salt", salt_pass },
-                    { "created_date", DateTime.Now }
+                    { "created_date", DateTime.Now },
+                    { "role", "user" }
                 };
 
                 Console.WriteLine("Executing INSERT operation...");
@@ -79,6 +80,7 @@ namespace JellyFlix_MediaHub.Data.Handlers
                         UserId = Convert.ToInt32(result.Rows[0]["user_id"]),
                         Username = result.Rows[0]["username"].ToString(),
                         Email = result.Rows[0]["email"].ToString(),
+                        Role = result.Rows[0]["role"].ToString(),
                         CreatedDate = Convert.ToDateTime(result.Rows[0]["created_date"])
                     };
                 }
