@@ -552,6 +552,7 @@
     <Compile Include="UI\UserProfile.Designer.cs">
       <DependentUpon>UserProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="Utils\App.cs" />
     <Compile Include="Utils\PasswordSecure.cs" />
     <EmbeddedResource Include="UI\UserProfile.resx">
       <DependentUpon>UserProfile.cs</DependentUpon>

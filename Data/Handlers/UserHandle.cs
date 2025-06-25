@@ -12,7 +12,7 @@ namespace JellyFlix_MediaHub.Data.Handlers
 {
     internal class UserHandle
     {
-        public static bool RegisterUser(string username, string email, string password, string role)
+        public static bool RegisterUser(string username, string email, string password, int role_id)
         {
             try
             {
@@ -20,14 +20,14 @@ namespace JellyFlix_MediaHub.Data.Handlers
                 string salt_pass = PasswordSecure.GenerateSaltPass();
                 string hashed_pass = PasswordSecure.HashPassword(password, salt_pass);
                 Console.WriteLine("Password hashed successfully");
-
+ 
                 var parameters = new Dictionary<string, object>
                 {
                     { "username", username },
                     { "email", email },
                     { "password", hashed_pass },
                     { "salt", salt_pass },
-                    { "role", role },
+                    { "role_id", role_id },
                     { "created_date", DateTime.Now }
                 };
 
@@ -80,7 +80,7 @@ namespace JellyFlix_MediaHub.Data.Handlers
                         UserId = Convert.ToInt32(result.Rows[0]["user_id"]),
                         Username = result.Rows[0]["username"].ToString(),
                         Email = result.Rows[0]["email"].ToString(),
-                        Role = result.Rows[0]["role"].ToString(),
+                        Role = result.Rows[0]["role_id"].ToString(),
                         CreatedDate = Convert.ToDateTime(result.Rows[0]["created_date"])
                     };
                 }

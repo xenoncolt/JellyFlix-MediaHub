@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JellyFlix_MediaHub.Data.Handlers;
+using JellyFlix_MediaHub.Utils;
 
 namespace JellyFlix_MediaHub.UI
 {
@@ -27,9 +28,7 @@ namespace JellyFlix_MediaHub.UI
         private void SignupButton_Click(object sender, EventArgs e)
         {
             SignUp signUpForm = new SignUp();
-            signUpForm.Show();
-            signUpForm.FormClosed += (s, args) => Application.Exit();
-            this.Hide();
+            App.Show(signUpForm, this);
         }
 
         private void LoginButton_Click(object sender, EventArgs e)
@@ -61,7 +60,9 @@ namespace JellyFlix_MediaHub.UI
 
             if (user != null)
             {
-                MessageBox.Show("Everything ok", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // MessageBox.Show("Everything ok", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MainMenu main_form = new MainMenu();
+                App.Show(main_form, this);
             } else
             {
                 UsernameTextBox.ErrorMessage = "Username is incorrect";

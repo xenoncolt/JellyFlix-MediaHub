@@ -322,14 +322,14 @@
             // 
             this.BackButton.BackColor = System.Drawing.Color.Transparent;
             this.BackButton.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.BackButton.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.BackButton.HoverState.ImageSize = new System.Drawing.Size(16, 16);
             this.BackButton.Image = global::JellyFlix_MediaHub.Properties.Resources.arrow_left_solid;
             this.BackButton.ImageOffset = new System.Drawing.Point(0, 0);
             this.BackButton.ImageRotate = 0F;
             this.BackButton.ImageSize = new System.Drawing.Size(16, 16);
             this.BackButton.Location = new System.Drawing.Point(25, 45);
             this.BackButton.Name = "BackButton";
-            this.BackButton.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.BackButton.PressedState.ImageSize = new System.Drawing.Size(16, 16);
             this.BackButton.Size = new System.Drawing.Size(36, 36);
             this.BackButton.TabIndex = 6;
             this.BackButton.UseTransparentBackground = true;

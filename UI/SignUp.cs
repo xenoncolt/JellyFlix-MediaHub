@@ -1,4 +1,5 @@
 ﻿using JellyFlix_MediaHub.Data.Handlers;
+using JellyFlix_MediaHub.Utils;
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
@@ -103,10 +104,10 @@ namespace JellyFlix_MediaHub.UI
 
             if (UserHandle.IsUsersDBEmpty())
             {
-                success = UserHandle.RegisterUser(UsernameTextBox.Text, EmailTextBox.Text, PasswordTextBox.Text, "admin");
+                success = UserHandle.RegisterUser(UsernameTextBox.Text, EmailTextBox.Text, PasswordTextBox.Text, 1); // 1 admin , 2 user, 3 premium
             } else
             {
-                success = UserHandle.RegisterUser(UsernameTextBox.Text, EmailTextBox.Text, PasswordTextBox.Text, "user");
+                success = UserHandle.RegisterUser(UsernameTextBox.Text, EmailTextBox.Text, PasswordTextBox.Text, 2);
             }
 
             if (success)
@@ -126,11 +127,11 @@ namespace JellyFlix_MediaHub.UI
         {
             if (parent_form != null)
             {
-                parent_form.Show();
+                App.Show(parent_form, this);
             } else
             {
                 Login login_form = new Login();
-                login_form.Show();
+                App.Show(login_form, this);
             }
         }
     }
