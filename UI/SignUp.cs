@@ -17,10 +17,10 @@ namespace JellyFlix_MediaHub.UI
     public partial class SignUp : Form
     {
         private Form parent_form;
-        public SignUp(Form parent = null)
+        public SignUp(Form parent_form = null)
         {
             InitializeComponent();
-            parent_form = parent;
+            this.parent_form = parent_form;
         }
 
         private void SignUp_Load(object sender, EventArgs e)

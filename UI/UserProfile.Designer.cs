@@ -37,6 +37,9 @@
             this.BackButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.AvatarBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.InsidePanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.LogoutButton = new Guna.UI2.WinForms.Guna2Button();
+            this.PositionLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.ApplyButton = new Guna.UI2.WinForms.Guna2Button();
             this.ConfirmPassErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.PasswordErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.EmailErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -49,12 +52,9 @@
             this.EmailLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.UsernameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.UsernameLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.ApplyButton = new Guna.UI2.WinForms.Guna2Button();
             this.InsideElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.TabDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.ProfilePageTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.PositionLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.LogoutButton = new Guna.UI2.WinForms.Guna2Button();
             this.TabBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarBox)).BeginInit();
             this.InsidePanel.SuspendLayout();
@@ -122,14 +122,15 @@
             this.BackButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BackButton.BackColor = System.Drawing.Color.Transparent;
             this.BackButton.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
-            this.BackButton.HoverState.ImageSize = new System.Drawing.Size(64, 64);
+            this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BackButton.HoverState.ImageSize = new System.Drawing.Size(16, 16);
             this.BackButton.Image = global::JellyFlix_MediaHub.Properties.Resources.arrow_left_solid;
             this.BackButton.ImageOffset = new System.Drawing.Point(0, 0);
             this.BackButton.ImageRotate = 0F;
             this.BackButton.ImageSize = new System.Drawing.Size(16, 16);
             this.BackButton.Location = new System.Drawing.Point(29, 43);
             this.BackButton.Name = "BackButton";
-            this.BackButton.PressedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.BackButton.PressedState.ImageSize = new System.Drawing.Size(16, 16);
             this.BackButton.Size = new System.Drawing.Size(36, 36);
             this.BackButton.TabIndex = 7;
             this.BackButton.UseTransparentBackground = true;
@@ -142,7 +143,7 @@
             this.AvatarBox.FillColor = System.Drawing.Color.Transparent;
             this.AvatarBox.Image = global::JellyFlix_MediaHub.Properties.Resources.user_tie_solid;
             this.AvatarBox.ImageRotate = 0F;
-            this.AvatarBox.Location = new System.Drawing.Point(365, 15);
+            this.AvatarBox.Location = new System.Drawing.Point(368, 15);
             this.AvatarBox.Name = "AvatarBox";
             this.AvatarBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.AvatarBox.Size = new System.Drawing.Size(145, 131);
@@ -181,6 +182,62 @@
             this.InsidePanel.Size = new System.Drawing.Size(868, 563);
             this.InsidePanel.TabIndex = 9;
             // 
+            // LogoutButton
+            // 
+            this.LogoutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LogoutButton.Animated = true;
+            this.LogoutButton.AnimatedGIF = true;
+            this.LogoutButton.BackColor = System.Drawing.Color.Transparent;
+            this.LogoutButton.BorderRadius = 15;
+            this.LogoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LogoutButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.LogoutButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.LogoutButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.LogoutButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.LogoutButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LogoutButton.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.LogoutButton.ForeColor = System.Drawing.Color.White;
+            this.LogoutButton.Location = new System.Drawing.Point(43, 484);
+            this.LogoutButton.Name = "LogoutButton";
+            this.LogoutButton.Size = new System.Drawing.Size(168, 51);
+            this.LogoutButton.TabIndex = 23;
+            this.LogoutButton.Text = "Logout";
+            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
+            // 
+            // PositionLabel
+            // 
+            this.PositionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.PositionLabel.BackColor = System.Drawing.Color.Transparent;
+            this.PositionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PositionLabel.ForeColor = System.Drawing.SystemColors.Menu;
+            this.PositionLabel.Location = new System.Drawing.Point(411, 170);
+            this.PositionLabel.Name = "PositionLabel";
+            this.PositionLabel.Size = new System.Drawing.Size(59, 22);
+            this.PositionLabel.TabIndex = 22;
+            this.PositionLabel.Text = "Position";
+            // 
+            // ApplyButton
+            // 
+            this.ApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ApplyButton.Animated = true;
+            this.ApplyButton.AnimatedGIF = true;
+            this.ApplyButton.BackColor = System.Drawing.Color.Transparent;
+            this.ApplyButton.BorderRadius = 15;
+            this.ApplyButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ApplyButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.ApplyButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.ApplyButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.ApplyButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.ApplyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(195)))));
+            this.ApplyButton.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
+            this.ApplyButton.ForeColor = System.Drawing.Color.White;
+            this.ApplyButton.Location = new System.Drawing.Point(668, 484);
+            this.ApplyButton.Name = "ApplyButton";
+            this.ApplyButton.Size = new System.Drawing.Size(168, 51);
+            this.ApplyButton.TabIndex = 21;
+            this.ApplyButton.Text = "Apply";
+            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
+            // 
             // ConfirmPassErrorMsg
             // 
             this.ConfirmPassErrorMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -213,13 +270,12 @@
             this.EmailErrorMsg.BackColor = System.Drawing.Color.Transparent;
             this.EmailErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailErrorMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(40)))), ((int)(((byte)(39)))));
-            this.EmailErrorMsg.Location = new System.Drawing.Point(88, 422);
+            this.EmailErrorMsg.Location = new System.Drawing.Point(88, 424);
             this.EmailErrorMsg.Name = "EmailErrorMsg";
             this.EmailErrorMsg.Size = new System.Drawing.Size(168, 17);
             this.EmailErrorMsg.TabIndex = 19;
             this.EmailErrorMsg.Text = "*Valid email address required.";
             this.EmailErrorMsg.Visible = false;
-            this.EmailErrorMsg.Click += new System.EventHandler(this.EmailErrorMsg_Click);
             // 
             // UsernameErrorMsg
             // 
@@ -227,7 +283,7 @@
             this.UsernameErrorMsg.BackColor = System.Drawing.Color.Transparent;
             this.UsernameErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameErrorMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(40)))), ((int)(((byte)(39)))));
-            this.UsernameErrorMsg.Location = new System.Drawing.Point(88, 305);
+            this.UsernameErrorMsg.Location = new System.Drawing.Point(88, 308);
             this.UsernameErrorMsg.Name = "UsernameErrorMsg";
             this.UsernameErrorMsg.Size = new System.Drawing.Size(231, 17);
             this.UsernameErrorMsg.TabIndex = 20;
@@ -289,6 +345,7 @@
             this.PasswordTextBox.SelectedText = "";
             this.PasswordTextBox.Size = new System.Drawing.Size(274, 36);
             this.PasswordTextBox.TabIndex = 14;
+            this.PasswordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
             // 
             // ChangePasswordLabel
             // 
@@ -319,12 +376,13 @@
             this.EmailTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.EmailTextBox.ForeColor = System.Drawing.Color.Black;
             this.EmailTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.EmailTextBox.Location = new System.Drawing.Point(88, 385);
+            this.EmailTextBox.Location = new System.Drawing.Point(88, 382);
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.PlaceholderText = "";
             this.EmailTextBox.SelectedText = "";
             this.EmailTextBox.Size = new System.Drawing.Size(251, 36);
             this.EmailTextBox.TabIndex = 15;
+            this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
             // 
             // EmailLabel
             // 
@@ -333,7 +391,7 @@
             this.EmailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
             this.EmailLabel.IsSelectionEnabled = false;
-            this.EmailLabel.Location = new System.Drawing.Point(88, 353);
+            this.EmailLabel.Location = new System.Drawing.Point(88, 347);
             this.EmailLabel.Name = "EmailLabel";
             this.EmailLabel.Size = new System.Drawing.Size(105, 22);
             this.EmailLabel.TabIndex = 11;
@@ -355,7 +413,7 @@
             this.UsernameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.UsernameTextBox.ForeColor = System.Drawing.Color.Black;
             this.UsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.UsernameTextBox.Location = new System.Drawing.Point(88, 269);
+            this.UsernameTextBox.Location = new System.Drawing.Point(88, 268);
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.PlaceholderText = "";
             this.UsernameTextBox.SelectedText = "";
@@ -375,28 +433,6 @@
             this.UsernameLabel.Size = new System.Drawing.Size(77, 22);
             this.UsernameLabel.TabIndex = 12;
             this.UsernameLabel.Text = "Username";
-            // 
-            // ApplyButton
-            // 
-            this.ApplyButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.ApplyButton.Animated = true;
-            this.ApplyButton.AnimatedGIF = true;
-            this.ApplyButton.BackColor = System.Drawing.Color.Transparent;
-            this.ApplyButton.BorderRadius = 15;
-            this.ApplyButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ApplyButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.ApplyButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.ApplyButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.ApplyButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ApplyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(195)))));
-            this.ApplyButton.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
-            this.ApplyButton.ForeColor = System.Drawing.Color.White;
-            this.ApplyButton.Location = new System.Drawing.Point(668, 484);
-            this.ApplyButton.Name = "ApplyButton";
-            this.ApplyButton.Size = new System.Drawing.Size(168, 51);
-            this.ApplyButton.TabIndex = 21;
-            this.ApplyButton.Text = "Apply";
-            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
             // 
             // InsideElipse
             // 
@@ -421,40 +457,6 @@
             this.ProfilePageTitle.Size = new System.Drawing.Size(80, 33);
             this.ProfilePageTitle.TabIndex = 10;
             this.ProfilePageTitle.Text = "Profile";
-            // 
-            // PositionLabel
-            // 
-            this.PositionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.PositionLabel.BackColor = System.Drawing.Color.Transparent;
-            this.PositionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PositionLabel.ForeColor = System.Drawing.SystemColors.Menu;
-            this.PositionLabel.Location = new System.Drawing.Point(411, 170);
-            this.PositionLabel.Name = "PositionLabel";
-            this.PositionLabel.Size = new System.Drawing.Size(59, 22);
-            this.PositionLabel.TabIndex = 22;
-            this.PositionLabel.Text = "Position";
-            // 
-            // LogoutButton
-            // 
-            this.LogoutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.LogoutButton.Animated = true;
-            this.LogoutButton.AnimatedGIF = true;
-            this.LogoutButton.BackColor = System.Drawing.Color.Transparent;
-            this.LogoutButton.BorderRadius = 15;
-            this.LogoutButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.LogoutButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.LogoutButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.LogoutButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.LogoutButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.LogoutButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LogoutButton.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
-            this.LogoutButton.ForeColor = System.Drawing.Color.White;
-            this.LogoutButton.Location = new System.Drawing.Point(43, 484);
-            this.LogoutButton.Name = "LogoutButton";
-            this.LogoutButton.Size = new System.Drawing.Size(168, 51);
-            this.LogoutButton.TabIndex = 23;
-            this.LogoutButton.Text = "Logout";
-            this.LogoutButton.Click += new System.EventHandler(this.LogoutButton_Click);
             // 
             // UserProfile
             // 

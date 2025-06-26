@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,30 +18,49 @@ namespace JellyFlix_MediaHub.UI
     public partial class UserProfile : Form
     {
         private readonly User current_user;
-        public UserProfile(User user)
+        private Form parent_form;
+
+        public UserProfile(User current_user, Form parent_form = null)
         {
             InitializeComponent();
-            current_user = user;
+            this.current_user = current_user;
+            this.parent_form = parent_form;
         }
 
         private void BackButton_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void EmailErrorMsg_Click(object sender, EventArgs e)
-        {
-
+            if (this.parent_form != null)
+            {
+               App.Show(parent_form, this); 
+            } else
+            {
+                MainMenu main_menu = new MainMenu(current_user);
+                App.Show(main_menu, this);
+            }
         }
 
         private void ConfirmPasswordTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            if (ConfirmPasswordTextBox.Text != PasswordTextBox.Text)
+            {
+                ConfirmPassErrorMsg.Visible = true;
+            }
+            else
+            {
+                ConfirmPassErrorMsg.Visible = false;
+            }
         }
 
         private void UsernameTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            if (current_user.Username == UsernameTextBox.Text)
+            {
+                UsernameErrorMsg.Text = "*New Username can't be same as current username";
+                UsernameErrorMsg.Visible = true;
+            } else
+            {
+                UsernameErrorMsg.Visible = false;
+            }
         }
 
         private void LogoutButton_Click(object sender, EventArgs e)
@@ -62,6 +82,12 @@ namespace JellyFlix_MediaHub.UI
             string new_username = null;
             string new_email = null;
             string new_password = null;
+
+            if (PasswordErrorMsg.Visible == true || ConfirmPassErrorMsg.Visible == true || UsernameErrorMsg.Visible == true || EmailErrorMsg.Visible == true)
+            {
+                // MessageBox.Show("Error");
+                return;
+            }
 
             if (!string.IsNullOrEmpty(UsernameTextBox.Text) && UsernameTextBox.Text != current_user.Username)
             {
@@ -103,6 +129,45 @@ namespace JellyFlix_MediaHub.UI
             else
             {
                 MessageBox.Show("Failed to update profile. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void EmailTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(EmailTextBox.Text, @"^[^@\s]+@gmail\.com$"))
+            {
+                EmailErrorMsg.Visible = true;
+            }
+            else
+            {
+                EmailErrorMsg.Visible = false;
+            }
+
+            if (current_user.Email == EmailTextBox.Text)
+            {
+                EmailErrorMsg.Text = "*New Email can't be same as current email";
+                EmailErrorMsg.Visible = true;
+            }
+        }
+
+        private void PasswordTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ConfirmPasswordTextBox.Text != PasswordTextBox.Text)
+            {
+                ConfirmPassErrorMsg.Visible = true;
+            }
+            else
+            {
+                ConfirmPassErrorMsg.Visible = false;
+            }
+
+            if (PasswordTextBox.Text.Length < 4)
+            {
+                PasswordErrorMsg.Visible = true;
+            }
+            else
+            {
+                PasswordErrorMsg.Visible = false;
             }
         }
     }
