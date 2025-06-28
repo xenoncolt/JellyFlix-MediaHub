@@ -26,9 +26,12 @@ namespace JellyFlix_MediaHub.UI
         {
             if (currentUser != null)
             {
-                if (currentUser.Role != "admin")
+                if (currentUser.Role == "user")
                 {
-                    NavMenu.TabPages.Remove(SettingsTab);
+                    NavMenu.TabPages.Remove(InvitesPage);
+                    NavMenu.TabPages.Remove(UsersTab);
+                } else if (currentUser.Role == "premium")
+                {
                     NavMenu.TabPages.Remove(UsersTab);
                 }
             }

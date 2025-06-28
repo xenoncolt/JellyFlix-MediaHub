@@ -55,6 +55,8 @@
             this.InsideElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.TabDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.ProfilePageTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.usernameText = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.emailText = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.TabBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarBox)).BeginInit();
             this.InsidePanel.SuspendLayout();
@@ -75,18 +77,19 @@
             this.TabBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(23)))), ((int)(((byte)(53)))));
             this.TabBar.Location = new System.Drawing.Point(0, 0);
             this.TabBar.Name = "TabBar";
-            this.TabBar.Size = new System.Drawing.Size(1091, 29);
+            this.TabBar.Size = new System.Drawing.Size(1280, 29);
             this.TabBar.TabIndex = 2;
             // 
             // MinimizeApp
             // 
             this.MinimizeApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MinimizeApp.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.MinimizeApp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MinimizeApp.FillColor = System.Drawing.Color.Transparent;
             this.MinimizeApp.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
             this.MinimizeApp.HoverState.IconColor = System.Drawing.Color.White;
             this.MinimizeApp.IconColor = System.Drawing.Color.White;
-            this.MinimizeApp.Location = new System.Drawing.Point(976, 0);
+            this.MinimizeApp.Location = new System.Drawing.Point(1165, 0);
             this.MinimizeApp.Name = "MinimizeApp";
             this.MinimizeApp.Size = new System.Drawing.Size(39, 29);
             this.MinimizeApp.TabIndex = 1;
@@ -96,11 +99,12 @@
             this.MaximizeApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.MaximizeApp.Animated = true;
             this.MaximizeApp.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
+            this.MaximizeApp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MaximizeApp.FillColor = System.Drawing.Color.Transparent;
             this.MaximizeApp.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
             this.MaximizeApp.HoverState.IconColor = System.Drawing.Color.White;
             this.MaximizeApp.IconColor = System.Drawing.Color.White;
-            this.MaximizeApp.Location = new System.Drawing.Point(1015, 0);
+            this.MaximizeApp.Location = new System.Drawing.Point(1204, 0);
             this.MaximizeApp.Name = "MaximizeApp";
             this.MaximizeApp.Size = new System.Drawing.Size(39, 29);
             this.MaximizeApp.TabIndex = 1;
@@ -108,18 +112,18 @@
             // CloseApp
             // 
             this.CloseApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseApp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CloseApp.FillColor = System.Drawing.Color.Transparent;
             this.CloseApp.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(28)))), ((int)(((byte)(17)))));
             this.CloseApp.HoverState.IconColor = System.Drawing.Color.White;
             this.CloseApp.IconColor = System.Drawing.Color.White;
-            this.CloseApp.Location = new System.Drawing.Point(1054, 0);
+            this.CloseApp.Location = new System.Drawing.Point(1243, 0);
             this.CloseApp.Name = "CloseApp";
             this.CloseApp.Size = new System.Drawing.Size(39, 29);
             this.CloseApp.TabIndex = 1;
             // 
             // BackButton
             // 
-            this.BackButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BackButton.BackColor = System.Drawing.Color.Transparent;
             this.BackButton.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
             this.BackButton.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -138,12 +142,12 @@
             // 
             // AvatarBox
             // 
-            this.AvatarBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AvatarBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.AvatarBox.BackColor = System.Drawing.Color.Transparent;
             this.AvatarBox.FillColor = System.Drawing.Color.Transparent;
             this.AvatarBox.Image = global::JellyFlix_MediaHub.Properties.Resources.user_tie_solid;
             this.AvatarBox.ImageRotate = 0F;
-            this.AvatarBox.Location = new System.Drawing.Point(368, 15);
+            this.AvatarBox.Location = new System.Drawing.Point(454, 15);
             this.AvatarBox.Name = "AvatarBox";
             this.AvatarBox.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
             this.AvatarBox.Size = new System.Drawing.Size(145, 131);
@@ -157,6 +161,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.InsidePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(43)))), ((int)(((byte)(104)))));
+            this.InsidePanel.Controls.Add(this.emailText);
+            this.InsidePanel.Controls.Add(this.usernameText);
             this.InsidePanel.Controls.Add(this.LogoutButton);
             this.InsidePanel.Controls.Add(this.PositionLabel);
             this.InsidePanel.Controls.Add(this.ApplyButton);
@@ -176,15 +182,16 @@
             this.InsidePanel.Location = new System.Drawing.Point(113, 115);
             this.InsidePanel.MinimumSize = new System.Drawing.Size(868, 563);
             this.InsidePanel.Name = "InsidePanel";
+            this.InsidePanel.ShadowDecoration.BorderRadius = 15;
             this.InsidePanel.ShadowDecoration.Depth = 20;
             this.InsidePanel.ShadowDecoration.Enabled = true;
             this.InsidePanel.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 10, 10);
-            this.InsidePanel.Size = new System.Drawing.Size(868, 563);
+            this.InsidePanel.Size = new System.Drawing.Size(1057, 563);
             this.InsidePanel.TabIndex = 9;
             // 
             // LogoutButton
             // 
-            this.LogoutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LogoutButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LogoutButton.Animated = true;
             this.LogoutButton.AnimatedGIF = true;
             this.LogoutButton.BackColor = System.Drawing.Color.Transparent;
@@ -199,6 +206,7 @@
             this.LogoutButton.ForeColor = System.Drawing.Color.White;
             this.LogoutButton.Location = new System.Drawing.Point(43, 484);
             this.LogoutButton.Name = "LogoutButton";
+            this.LogoutButton.ShadowDecoration.BorderRadius = 20;
             this.LogoutButton.Size = new System.Drawing.Size(168, 51);
             this.LogoutButton.TabIndex = 23;
             this.LogoutButton.Text = "Logout";
@@ -206,11 +214,11 @@
             // 
             // PositionLabel
             // 
-            this.PositionLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.PositionLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PositionLabel.BackColor = System.Drawing.Color.Transparent;
             this.PositionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PositionLabel.ForeColor = System.Drawing.SystemColors.Menu;
-            this.PositionLabel.Location = new System.Drawing.Point(411, 170);
+            this.PositionLabel.Location = new System.Drawing.Point(497, 170);
             this.PositionLabel.Name = "PositionLabel";
             this.PositionLabel.Size = new System.Drawing.Size(59, 22);
             this.PositionLabel.TabIndex = 22;
@@ -231,7 +239,7 @@
             this.ApplyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(195)))));
             this.ApplyButton.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
             this.ApplyButton.ForeColor = System.Drawing.Color.White;
-            this.ApplyButton.Location = new System.Drawing.Point(668, 484);
+            this.ApplyButton.Location = new System.Drawing.Point(857, 484);
             this.ApplyButton.Name = "ApplyButton";
             this.ApplyButton.Size = new System.Drawing.Size(168, 51);
             this.ApplyButton.TabIndex = 21;
@@ -244,7 +252,7 @@
             this.ConfirmPassErrorMsg.BackColor = System.Drawing.Color.Transparent;
             this.ConfirmPassErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConfirmPassErrorMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(40)))), ((int)(((byte)(39)))));
-            this.ConfirmPassErrorMsg.Location = new System.Drawing.Point(480, 424);
+            this.ConfirmPassErrorMsg.Location = new System.Drawing.Point(614, 424);
             this.ConfirmPassErrorMsg.Name = "ConfirmPassErrorMsg";
             this.ConfirmPassErrorMsg.Size = new System.Drawing.Size(264, 17);
             this.ConfirmPassErrorMsg.TabIndex = 17;
@@ -253,11 +261,11 @@
             // 
             // PasswordErrorMsg
             // 
-            this.PasswordErrorMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasswordErrorMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordErrorMsg.BackColor = System.Drawing.Color.Transparent;
             this.PasswordErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasswordErrorMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(40)))), ((int)(((byte)(39)))));
-            this.PasswordErrorMsg.Location = new System.Drawing.Point(480, 308);
+            this.PasswordErrorMsg.Location = new System.Drawing.Point(614, 308);
             this.PasswordErrorMsg.Name = "PasswordErrorMsg";
             this.PasswordErrorMsg.Size = new System.Drawing.Size(242, 17);
             this.PasswordErrorMsg.TabIndex = 18;
@@ -266,7 +274,7 @@
             // 
             // EmailErrorMsg
             // 
-            this.EmailErrorMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.EmailErrorMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.EmailErrorMsg.BackColor = System.Drawing.Color.Transparent;
             this.EmailErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailErrorMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(40)))), ((int)(((byte)(39)))));
@@ -279,7 +287,6 @@
             // 
             // UsernameErrorMsg
             // 
-            this.UsernameErrorMsg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UsernameErrorMsg.BackColor = System.Drawing.Color.Transparent;
             this.UsernameErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameErrorMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(40)))), ((int)(((byte)(39)))));
@@ -304,11 +311,11 @@
             this.ConfirmPasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ConfirmPasswordTextBox.ForeColor = System.Drawing.Color.Black;
             this.ConfirmPasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(480, 382);
+            this.ConfirmPasswordTextBox.Location = new System.Drawing.Point(614, 382);
             this.ConfirmPasswordTextBox.Name = "ConfirmPasswordTextBox";
             this.ConfirmPasswordTextBox.PlaceholderText = "Same as password";
             this.ConfirmPasswordTextBox.SelectedText = "";
-            this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(274, 36);
+            this.ConfirmPasswordTextBox.Size = new System.Drawing.Size(348, 36);
             this.ConfirmPasswordTextBox.TabIndex = 13;
             this.ConfirmPasswordTextBox.TextChanged += new System.EventHandler(this.ConfirmPasswordTextBox_TextChanged);
             // 
@@ -319,7 +326,7 @@
             this.ConfirmPassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ConfirmPassLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
             this.ConfirmPassLabel.IsSelectionEnabled = false;
-            this.ConfirmPassLabel.Location = new System.Drawing.Point(480, 347);
+            this.ConfirmPassLabel.Location = new System.Drawing.Point(614, 347);
             this.ConfirmPassLabel.Name = "ConfirmPassLabel";
             this.ConfirmPassLabel.Size = new System.Drawing.Size(131, 22);
             this.ConfirmPassLabel.TabIndex = 9;
@@ -327,7 +334,7 @@
             // 
             // PasswordTextBox
             // 
-            this.PasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasswordTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PasswordTextBox.BorderRadius = 12;
             this.PasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.PasswordTextBox.DefaultText = "";
@@ -339,22 +346,22 @@
             this.PasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.PasswordTextBox.ForeColor = System.Drawing.Color.Black;
             this.PasswordTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.PasswordTextBox.Location = new System.Drawing.Point(480, 268);
+            this.PasswordTextBox.Location = new System.Drawing.Point(614, 268);
             this.PasswordTextBox.Name = "PasswordTextBox";
             this.PasswordTextBox.PlaceholderText = "Greater than 4 character";
             this.PasswordTextBox.SelectedText = "";
-            this.PasswordTextBox.Size = new System.Drawing.Size(274, 36);
+            this.PasswordTextBox.Size = new System.Drawing.Size(348, 36);
             this.PasswordTextBox.TabIndex = 14;
             this.PasswordTextBox.TextChanged += new System.EventHandler(this.PasswordTextBox_TextChanged);
             // 
             // ChangePasswordLabel
             // 
-            this.ChangePasswordLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChangePasswordLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ChangePasswordLabel.BackColor = System.Drawing.Color.Transparent;
             this.ChangePasswordLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChangePasswordLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
             this.ChangePasswordLabel.IsSelectionEnabled = false;
-            this.ChangePasswordLabel.Location = new System.Drawing.Point(480, 233);
+            this.ChangePasswordLabel.Location = new System.Drawing.Point(614, 233);
             this.ChangePasswordLabel.Name = "ChangePasswordLabel";
             this.ChangePasswordLabel.Size = new System.Drawing.Size(132, 22);
             this.ChangePasswordLabel.TabIndex = 10;
@@ -363,7 +370,7 @@
             // EmailTextBox
             // 
             this.EmailTextBox.AcceptsReturn = true;
-            this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.EmailTextBox.BorderRadius = 12;
             this.EmailTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.EmailTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -380,13 +387,15 @@
             this.EmailTextBox.Name = "EmailTextBox";
             this.EmailTextBox.PlaceholderText = "";
             this.EmailTextBox.SelectedText = "";
-            this.EmailTextBox.Size = new System.Drawing.Size(251, 36);
+            this.EmailTextBox.Size = new System.Drawing.Size(346, 36);
             this.EmailTextBox.TabIndex = 15;
+            this.EmailTextBox.Visible = false;
             this.EmailTextBox.TextChanged += new System.EventHandler(this.EmailTextBox_TextChanged);
+            this.EmailTextBox.LostFocus += new System.EventHandler(this.EmailTextBox_LostFocus);
             // 
             // EmailLabel
             // 
-            this.EmailLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.EmailLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.EmailLabel.BackColor = System.Drawing.Color.Transparent;
             this.EmailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
@@ -400,7 +409,6 @@
             // UsernameTextBox
             // 
             this.UsernameTextBox.AcceptsReturn = true;
-            this.UsernameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UsernameTextBox.BorderRadius = 12;
             this.UsernameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.UsernameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
@@ -417,13 +425,14 @@
             this.UsernameTextBox.Name = "UsernameTextBox";
             this.UsernameTextBox.PlaceholderText = "";
             this.UsernameTextBox.SelectedText = "";
-            this.UsernameTextBox.Size = new System.Drawing.Size(251, 36);
+            this.UsernameTextBox.Size = new System.Drawing.Size(346, 36);
             this.UsernameTextBox.TabIndex = 16;
+            this.UsernameTextBox.Visible = false;
             this.UsernameTextBox.TextChanged += new System.EventHandler(this.UsernameTextBox_TextChanged);
+            this.UsernameTextBox.LostFocus += new System.EventHandler(this.UsernameTextBox_LostFocus);
             // 
             // UsernameLabel
             // 
-            this.UsernameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.UsernameLabel.BackColor = System.Drawing.Color.Transparent;
             this.UsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UsernameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
@@ -458,18 +467,45 @@
             this.ProfilePageTitle.TabIndex = 10;
             this.ProfilePageTitle.Text = "Profile";
             // 
+            // usernameText
+            // 
+            this.usernameText.BackColor = System.Drawing.Color.Transparent;
+            this.usernameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.usernameText.IsSelectionEnabled = false;
+            this.usernameText.Location = new System.Drawing.Point(91, 275);
+            this.usernameText.Name = "usernameText";
+            this.usernameText.Size = new System.Drawing.Size(77, 22);
+            this.usernameText.TabIndex = 24;
+            this.usernameText.Text = "Username";
+            this.usernameText.Click += new System.EventHandler(this.usernameText_Click);
+            // 
+            // emailText
+            // 
+            this.emailText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.emailText.BackColor = System.Drawing.Color.Transparent;
+            this.emailText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.emailText.IsSelectionEnabled = false;
+            this.emailText.Location = new System.Drawing.Point(91, 389);
+            this.emailText.Name = "emailText";
+            this.emailText.Size = new System.Drawing.Size(105, 22);
+            this.emailText.TabIndex = 25;
+            this.emailText.Text = "Email Address";
+            this.emailText.Click += new System.EventHandler(this.emailText_Click);
+            // 
             // UserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(1091, 732);
+            this.ClientSize = new System.Drawing.Size(1280, 732);
             this.Controls.Add(this.ProfilePageTitle);
             this.Controls.Add(this.InsidePanel);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.TabBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MinimumSize = new System.Drawing.Size(1091, 732);
+            this.MinimumSize = new System.Drawing.Size(1280, 720);
             this.Name = "UserProfile";
             this.Text = "UserProfile";
             this.Load += new System.EventHandler(this.UserProfile_Load);
@@ -510,5 +546,7 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel ProfilePageTitle;
         private Guna.UI2.WinForms.Guna2HtmlLabel PositionLabel;
         private Guna.UI2.WinForms.Guna2Button LogoutButton;
+        private Guna.UI2.WinForms.Guna2HtmlLabel usernameText;
+        private Guna.UI2.WinForms.Guna2HtmlLabel emailText;
     }
 }

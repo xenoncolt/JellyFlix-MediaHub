@@ -62,10 +62,11 @@
             this.TabBar.BackColor = System.Drawing.Color.Transparent;
             this.TabBar.Controls.Add(this.MinimizeApp);
             this.TabBar.Controls.Add(this.CloseApp);
+            this.TabBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.TabBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(23)))), ((int)(((byte)(53)))));
-            this.TabBar.Location = new System.Drawing.Point(-3, 0);
+            this.TabBar.Location = new System.Drawing.Point(0, 0);
             this.TabBar.Name = "TabBar";
-            this.TabBar.Size = new System.Drawing.Size(1095, 29);
+            this.TabBar.Size = new System.Drawing.Size(1098, 29);
             this.TabBar.TabIndex = 0;
             this.TabBar.Text = "guna2ContainerControl1";
             // 
@@ -77,7 +78,7 @@
             this.MinimizeApp.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
             this.MinimizeApp.HoverState.IconColor = System.Drawing.Color.White;
             this.MinimizeApp.IconColor = System.Drawing.Color.White;
-            this.MinimizeApp.Location = new System.Drawing.Point(1015, 0);
+            this.MinimizeApp.Location = new System.Drawing.Point(1018, 0);
             this.MinimizeApp.Name = "MinimizeApp";
             this.MinimizeApp.Size = new System.Drawing.Size(39, 29);
             this.MinimizeApp.TabIndex = 1;
@@ -89,7 +90,7 @@
             this.CloseApp.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(28)))), ((int)(((byte)(17)))));
             this.CloseApp.HoverState.IconColor = System.Drawing.Color.White;
             this.CloseApp.IconColor = System.Drawing.Color.White;
-            this.CloseApp.Location = new System.Drawing.Point(1055, 0);
+            this.CloseApp.Location = new System.Drawing.Point(1058, 0);
             this.CloseApp.Name = "CloseApp";
             this.CloseApp.Size = new System.Drawing.Size(38, 29);
             this.CloseApp.TabIndex = 1;
@@ -340,7 +341,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(63)))));
-            this.ClientSize = new System.Drawing.Size(1091, 732);
+            this.ClientSize = new System.Drawing.Size(1098, 732);
             this.Controls.Add(this.BackButton);
             this.Controls.Add(this.SignUpButton);
             this.Controls.Add(this.ConfirmPassErrorMsg);
@@ -358,6 +359,7 @@
             this.Controls.Add(this.SignUpPageTitle);
             this.Controls.Add(this.TabBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MinimumSize = new System.Drawing.Size(1091, 732);
             this.Name = "SignUp";
             this.Text = "SignUp";
             this.Load += new System.EventHandler(this.SignUp_Load);

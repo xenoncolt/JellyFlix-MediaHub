@@ -62,6 +62,7 @@
             this.ClosedApp.Animated = true;
             this.ClosedApp.AutoRoundedCorners = true;
             this.ClosedApp.BackColor = System.Drawing.Color.Transparent;
+            this.ClosedApp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ClosedApp.FillColor = System.Drawing.Color.Brown;
             this.ClosedApp.HoverState.BorderColor = System.Drawing.Color.Transparent;
             this.ClosedApp.HoverState.FillColor = System.Drawing.Color.Maroon;
@@ -82,6 +83,7 @@
             this.MinimizeApp.AutoRoundedCorners = true;
             this.MinimizeApp.BackColor = System.Drawing.Color.Transparent;
             this.MinimizeApp.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MinimizeBox;
+            this.MinimizeApp.Cursor = System.Windows.Forms.Cursors.Hand;
             this.MinimizeApp.CustomIconSize = 8F;
             this.MinimizeApp.FillColor = System.Drawing.Color.Goldenrod;
             this.MinimizeApp.HoverState.BorderColor = System.Drawing.Color.Transparent;

@@ -31,8 +31,9 @@ namespace JellyFlix_MediaHub.UI
         {
             if (this.parent_form != null)
             {
-               App.Show(parent_form, this); 
-            } else
+                App.Show(parent_form, this);
+            }
+            else
             {
                 MainMenu main_menu = new MainMenu(current_user);
                 App.Show(main_menu, this);
@@ -57,7 +58,8 @@ namespace JellyFlix_MediaHub.UI
             {
                 UsernameErrorMsg.Text = "*New Username can't be same as current username";
                 UsernameErrorMsg.Visible = true;
-            } else
+            }
+            else
             {
                 UsernameErrorMsg.Visible = false;
             }
@@ -71,8 +73,15 @@ namespace JellyFlix_MediaHub.UI
 
         private void UserProfile_Load(object sender, EventArgs e)
         {
-            UsernameTextBox.PlaceholderText = current_user.Username;
-            EmailTextBox.PlaceholderText = current_user.Email;
+            UsernameTextBox.Visible = false;
+            EmailTextBox.Visible = false;
+
+            usernameText.Visible = true;
+            usernameText.Text = current_user.Username;
+
+            emailText.Visible = true;
+            emailText.Text = current_user.Email;
+
             PositionLabel.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(current_user.Role);
         }
 
@@ -115,8 +124,18 @@ namespace JellyFlix_MediaHub.UI
             {
                 MessageBox.Show("Profile updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                if (new_username != null) UsernameTextBox.PlaceholderText = new_username;
-                if (new_email != null) EmailTextBox.PlaceholderText = new_email;
+                if (new_username != null)
+                {
+                    usernameText.Text = new_username;
+                    usernameText.Visible = true;
+                    UsernameTextBox.Visible = false;
+                }
+                if (new_email != null)
+                {
+                    emailText.Text = new_email;
+                    emailText.Visible = true;
+                    EmailTextBox.Visible = false;
+                }
 
                 UsernameTextBox.Text = string.Empty;
                 EmailTextBox.Text = string.Empty;
@@ -144,6 +163,7 @@ namespace JellyFlix_MediaHub.UI
             }
 
             if (current_user.Email == EmailTextBox.Text)
+
             {
                 EmailErrorMsg.Text = "*New Email can't be same as current email";
                 EmailErrorMsg.Visible = true;
@@ -168,6 +188,56 @@ namespace JellyFlix_MediaHub.UI
             else
             {
                 PasswordErrorMsg.Visible = false;
+            }
+
+            if (PasswordTextBox.Text == current_user.Password)
+            {
+                PasswordErrorMsg.Text = "*Your new password same as old password";
+                PasswordErrorMsg.Visible = true;
+            }
+            else
+            {
+                ConfirmPassErrorMsg.Visible = false;
+            }
+        }
+
+        private void usernameText_Click(object sender, EventArgs e)
+        {
+            usernameText.Visible = false;
+            UsernameTextBox.Visible = true;
+        }
+
+        private void emailText_Click(object sender, EventArgs e)
+        {
+            emailText.Visible = false;
+            EmailTextBox.Visible = true;
+        }
+
+        private void UsernameTextBox_LostFocus(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(UsernameTextBox.Text))
+            {
+                usernameText.Text = current_user.Username;
+                usernameText.Visible = true;
+                UsernameTextBox.Visible = false;
+            }
+            else
+            {
+                UsernameTextBox.Visible = true;
+            }
+        }
+
+        private void EmailTextBox_LostFocus(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(EmailTextBox.Text))
+            {
+                emailText.Text = current_user.Email;
+                emailText.Visible = true;
+                EmailTextBox.Visible = false;
+            }
+            else
+            {
+                EmailTextBox.Visible = true;
             }
         }
     }
