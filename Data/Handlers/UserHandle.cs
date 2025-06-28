@@ -97,6 +97,7 @@ namespace JellyFlix_MediaHub.Data.Handlers
                         UserId = Convert.ToInt32(result.Rows[0]["user_id"]),
                         Username = result.Rows[0]["username"].ToString(),
                         Email = result.Rows[0]["email"].ToString(),
+                        Password = password,
                         Role = role,
                         CreatedDate = Convert.ToDateTime(result.Rows[0]["created_date"])
                     };

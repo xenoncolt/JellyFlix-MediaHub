@@ -578,6 +578,7 @@
       <DependentUpon>UserProfile.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\App.cs" />
+    <Compile Include="Utils\AvatarImage.cs" />
     <Compile Include="Utils\PasswordSecure.cs" />
     <Content Include="JellyFilx.ico" />
     <EmbeddedResource Include="UI\UserProfile.resx">

@@ -15,11 +15,13 @@ namespace JellyFlix_MediaHub.UI
     public partial class MainMenu : Form
     {
         private readonly User currentUser;
+        private readonly AvatarImage avatar_img;
 
         public MainMenu(User user)
         {
             InitializeComponent();
             currentUser = user;
+            avatar_img = new AvatarImage(currentUser.Username);
         }
 
         private void MainMenu_Load(object sender, EventArgs e)
@@ -34,6 +36,11 @@ namespace JellyFlix_MediaHub.UI
                 {
                     NavMenu.TabPages.Remove(UsersTab);
                 }
+            }
+
+            if (avatar_img.LoadUserAvatar() != null)
+            {
+                ProfileBox.Image = avatar_img.LoadUserAvatar();
             }
         }
 

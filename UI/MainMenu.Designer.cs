@@ -45,21 +45,26 @@
             this.materialCheckbox3 = new MaterialSkin.Controls.MaterialCheckbox();
             this.materialCheckbox4 = new MaterialSkin.Controls.MaterialCheckbox();
             this.SettingsTab = new System.Windows.Forms.TabPage();
+            this.ProwlarrApilLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.TMDBApiLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.ProwlarrApiTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.TMDBApiTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.UsersTab = new System.Windows.Forms.TabPage();
             this.TrendingTab = new System.Windows.Forms.TabPage();
             this.SeriesTab = new System.Windows.Forms.TabPage();
             this.MovieTab = new System.Windows.Forms.TabPage();
             this.NavMenu = new Guna.UI2.WinForms.Guna2TabControl();
-            this.TMDBApiLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.ProwlarrApilLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.InvitesPage = new System.Windows.Forms.TabPage();
+            this.SettingsMenu = new Guna.UI2.WinForms.Guna2TabControl();
+            this.UserSettingsPage = new System.Windows.Forms.TabPage();
+            this.ServerSettingsPage = new System.Windows.Forms.TabPage();
             this.TabBar.SuspendLayout();
             this.HeadingSection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfileBox)).BeginInit();
             this.SettingsTab.SuspendLayout();
             this.NavMenu.SuspendLayout();
+            this.SettingsMenu.SuspendLayout();
+            this.ServerSettingsPage.SuspendLayout();
             this.SuspendLayout();
             // 
             // Elipse
@@ -261,10 +266,7 @@
             // SettingsTab
             // 
             this.SettingsTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(63)))));
-            this.SettingsTab.Controls.Add(this.ProwlarrApilLabel);
-            this.SettingsTab.Controls.Add(this.TMDBApiLabel);
-            this.SettingsTab.Controls.Add(this.guna2TextBox1);
-            this.SettingsTab.Controls.Add(this.TMDBApiTextBox);
+            this.SettingsTab.Controls.Add(this.SettingsMenu);
             this.SettingsTab.Location = new System.Drawing.Point(174, 4);
             this.SettingsTab.Name = "SettingsTab";
             this.SettingsTab.Padding = new System.Windows.Forms.Padding(3);
@@ -272,6 +274,52 @@
             this.SettingsTab.TabIndex = 5;
             this.SettingsTab.Text = "Settings";
             this.SettingsTab.Click += new System.EventHandler(this.SettingsTab_Click);
+            // 
+            // ProwlarrApilLabel
+            // 
+            this.ProwlarrApilLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ProwlarrApilLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProwlarrApilLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.ProwlarrApilLabel.IsSelectionEnabled = false;
+            this.ProwlarrApilLabel.Location = new System.Drawing.Point(18, 134);
+            this.ProwlarrApilLabel.Name = "ProwlarrApilLabel";
+            this.ProwlarrApilLabel.Size = new System.Drawing.Size(117, 22);
+            this.ProwlarrApilLabel.TabIndex = 18;
+            this.ProwlarrApilLabel.Text = "Prowlarr Api Key";
+            // 
+            // TMDBApiLabel
+            // 
+            this.TMDBApiLabel.BackColor = System.Drawing.Color.Transparent;
+            this.TMDBApiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TMDBApiLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.TMDBApiLabel.IsSelectionEnabled = false;
+            this.TMDBApiLabel.Location = new System.Drawing.Point(18, 31);
+            this.TMDBApiLabel.Name = "TMDBApiLabel";
+            this.TMDBApiLabel.Size = new System.Drawing.Size(105, 22);
+            this.TMDBApiLabel.TabIndex = 18;
+            this.TMDBApiLabel.Text = "TMDB Api Key";
+            // 
+            // ProwlarrApiTextBox
+            // 
+            this.ProwlarrApiTextBox.AcceptsReturn = true;
+            this.ProwlarrApiTextBox.BorderRadius = 12;
+            this.ProwlarrApiTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
+            this.ProwlarrApiTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ProwlarrApiTextBox.DefaultText = "";
+            this.ProwlarrApiTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.ProwlarrApiTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.ProwlarrApiTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ProwlarrApiTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ProwlarrApiTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProwlarrApiTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.ProwlarrApiTextBox.ForeColor = System.Drawing.Color.Black;
+            this.ProwlarrApiTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.ProwlarrApiTextBox.Location = new System.Drawing.Point(18, 162);
+            this.ProwlarrApiTextBox.Name = "ProwlarrApiTextBox";
+            this.ProwlarrApiTextBox.PlaceholderText = "AWDawdawdada412awAWdad";
+            this.ProwlarrApiTextBox.SelectedText = "";
+            this.ProwlarrApiTextBox.Size = new System.Drawing.Size(447, 36);
+            this.ProwlarrApiTextBox.TabIndex = 17;
             // 
             // TMDBApiTextBox
             // 
@@ -288,34 +336,12 @@
             this.TMDBApiTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.TMDBApiTextBox.ForeColor = System.Drawing.Color.Black;
             this.TMDBApiTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TMDBApiTextBox.Location = new System.Drawing.Point(44, 81);
+            this.TMDBApiTextBox.Location = new System.Drawing.Point(18, 59);
             this.TMDBApiTextBox.Name = "TMDBApiTextBox";
             this.TMDBApiTextBox.PlaceholderText = "AWDawdawdada412awAWdad";
             this.TMDBApiTextBox.SelectedText = "";
             this.TMDBApiTextBox.Size = new System.Drawing.Size(447, 36);
             this.TMDBApiTextBox.TabIndex = 17;
-            // 
-            // guna2TextBox1
-            // 
-            this.guna2TextBox1.AcceptsReturn = true;
-            this.guna2TextBox1.BorderRadius = 12;
-            this.guna2TextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.guna2TextBox1.DefaultText = "";
-            this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.guna2TextBox1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.guna2TextBox1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.guna2TextBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2TextBox1.ForeColor = System.Drawing.Color.Black;
-            this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.guna2TextBox1.Location = new System.Drawing.Point(44, 184);
-            this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "AWDawdawdada412awAWdad";
-            this.guna2TextBox1.SelectedText = "";
-            this.guna2TextBox1.Size = new System.Drawing.Size(447, 36);
-            this.guna2TextBox1.TabIndex = 17;
             // 
             // UsersTab
             // 
@@ -394,30 +420,6 @@
             this.NavMenu.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
             this.NavMenu.SelectedIndexChanged += new System.EventHandler(this.NavMenu_SelectedIndexChanged);
             // 
-            // TMDBApiLabel
-            // 
-            this.TMDBApiLabel.BackColor = System.Drawing.Color.Transparent;
-            this.TMDBApiLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TMDBApiLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
-            this.TMDBApiLabel.IsSelectionEnabled = false;
-            this.TMDBApiLabel.Location = new System.Drawing.Point(44, 53);
-            this.TMDBApiLabel.Name = "TMDBApiLabel";
-            this.TMDBApiLabel.Size = new System.Drawing.Size(105, 22);
-            this.TMDBApiLabel.TabIndex = 18;
-            this.TMDBApiLabel.Text = "TMDB Api Key";
-            // 
-            // ProwlarrApilLabel
-            // 
-            this.ProwlarrApilLabel.BackColor = System.Drawing.Color.Transparent;
-            this.ProwlarrApilLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProwlarrApilLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
-            this.ProwlarrApilLabel.IsSelectionEnabled = false;
-            this.ProwlarrApilLabel.Location = new System.Drawing.Point(44, 156);
-            this.ProwlarrApilLabel.Name = "ProwlarrApilLabel";
-            this.ProwlarrApilLabel.Size = new System.Drawing.Size(117, 22);
-            this.ProwlarrApilLabel.TabIndex = 18;
-            this.ProwlarrApilLabel.Text = "Prowlarr Api Key";
-            // 
             // InvitesPage
             // 
             this.InvitesPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(63)))));
@@ -427,6 +429,60 @@
             this.InvitesPage.Size = new System.Drawing.Size(1102, 675);
             this.InvitesPage.TabIndex = 6;
             this.InvitesPage.Text = "Invites";
+            // 
+            // SettingsMenu
+            // 
+            this.SettingsMenu.Controls.Add(this.UserSettingsPage);
+            this.SettingsMenu.Controls.Add(this.ServerSettingsPage);
+            this.SettingsMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SettingsMenu.ItemSize = new System.Drawing.Size(180, 40);
+            this.SettingsMenu.Location = new System.Drawing.Point(3, 3);
+            this.SettingsMenu.Name = "SettingsMenu";
+            this.SettingsMenu.SelectedIndex = 0;
+            this.SettingsMenu.Size = new System.Drawing.Size(1096, 669);
+            this.SettingsMenu.TabButtonHoverState.BorderColor = System.Drawing.Color.Empty;
+            this.SettingsMenu.TabButtonHoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.SettingsMenu.TabButtonHoverState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.SettingsMenu.TabButtonHoverState.ForeColor = System.Drawing.Color.White;
+            this.SettingsMenu.TabButtonHoverState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(52)))), ((int)(((byte)(70)))));
+            this.SettingsMenu.TabButtonIdleState.BorderColor = System.Drawing.Color.Empty;
+            this.SettingsMenu.TabButtonIdleState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.SettingsMenu.TabButtonIdleState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.SettingsMenu.TabButtonIdleState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(156)))), ((int)(((byte)(160)))), ((int)(((byte)(167)))));
+            this.SettingsMenu.TabButtonIdleState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.SettingsMenu.TabButtonSelectedState.BorderColor = System.Drawing.Color.Empty;
+            this.SettingsMenu.TabButtonSelectedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(37)))), ((int)(((byte)(49)))));
+            this.SettingsMenu.TabButtonSelectedState.Font = new System.Drawing.Font("Segoe UI Semibold", 10F);
+            this.SettingsMenu.TabButtonSelectedState.ForeColor = System.Drawing.Color.White;
+            this.SettingsMenu.TabButtonSelectedState.InnerColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(132)))), ((int)(((byte)(255)))));
+            this.SettingsMenu.TabButtonSize = new System.Drawing.Size(180, 40);
+            this.SettingsMenu.TabIndex = 19;
+            this.SettingsMenu.TabMenuBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(42)))), ((int)(((byte)(57)))));
+            this.SettingsMenu.TabMenuOrientation = Guna.UI2.WinForms.TabMenuOrientation.HorizontalTop;
+            // 
+            // UserSettingsPage
+            // 
+            this.UserSettingsPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(63)))));
+            this.UserSettingsPage.Location = new System.Drawing.Point(4, 44);
+            this.UserSettingsPage.Name = "UserSettingsPage";
+            this.UserSettingsPage.Padding = new System.Windows.Forms.Padding(3);
+            this.UserSettingsPage.Size = new System.Drawing.Size(1088, 621);
+            this.UserSettingsPage.TabIndex = 0;
+            this.UserSettingsPage.Text = "User Settings";
+            // 
+            // ServerSettingsPage
+            // 
+            this.ServerSettingsPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(63)))));
+            this.ServerSettingsPage.Controls.Add(this.TMDBApiLabel);
+            this.ServerSettingsPage.Controls.Add(this.ProwlarrApilLabel);
+            this.ServerSettingsPage.Controls.Add(this.TMDBApiTextBox);
+            this.ServerSettingsPage.Controls.Add(this.ProwlarrApiTextBox);
+            this.ServerSettingsPage.Location = new System.Drawing.Point(4, 44);
+            this.ServerSettingsPage.Name = "ServerSettingsPage";
+            this.ServerSettingsPage.Padding = new System.Windows.Forms.Padding(3);
+            this.ServerSettingsPage.Size = new System.Drawing.Size(1088, 621);
+            this.ServerSettingsPage.TabIndex = 1;
+            this.ServerSettingsPage.Text = "Server Config";
             // 
             // MainMenu
             // 
@@ -449,8 +505,10 @@
             this.HeadingSection.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfileBox)).EndInit();
             this.SettingsTab.ResumeLayout(false);
-            this.SettingsTab.PerformLayout();
             this.NavMenu.ResumeLayout(false);
+            this.SettingsMenu.ResumeLayout(false);
+            this.ServerSettingsPage.ResumeLayout(false);
+            this.ServerSettingsPage.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -480,8 +538,11 @@
         private System.Windows.Forms.TabPage SettingsTab;
         private Guna.UI2.WinForms.Guna2HtmlLabel ProwlarrApilLabel;
         private Guna.UI2.WinForms.Guna2HtmlLabel TMDBApiLabel;
-        private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
+        private Guna.UI2.WinForms.Guna2TextBox ProwlarrApiTextBox;
         private Guna.UI2.WinForms.Guna2TextBox TMDBApiTextBox;
         private System.Windows.Forms.TabPage InvitesPage;
+        private Guna.UI2.WinForms.Guna2TabControl SettingsMenu;
+        private System.Windows.Forms.TabPage UserSettingsPage;
+        private System.Windows.Forms.TabPage ServerSettingsPage;
     }
 }

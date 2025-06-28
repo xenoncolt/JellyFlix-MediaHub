@@ -1,6 +1,7 @@
 ﻿using JellyFlix_MediaHub.Data.Handlers;
 using JellyFlix_MediaHub.Models;
 using JellyFlix_MediaHub.Utils;
+using ModernWPF.Messages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,13 +19,15 @@ namespace JellyFlix_MediaHub.UI
     public partial class UserProfile : Form
     {
         private readonly User current_user;
-        private Form parent_form;
+        private readonly Form parent_form;
+        private readonly AvatarImage avatar_image;
 
         public UserProfile(User current_user, Form parent_form = null)
         {
             InitializeComponent();
             this.current_user = current_user;
             this.parent_form = parent_form;
+            this.avatar_image = new AvatarImage(current_user.Username);
         }
 
         private void BackButton_Click(object sender, EventArgs e)
@@ -83,6 +86,11 @@ namespace JellyFlix_MediaHub.UI
             emailText.Text = current_user.Email;
 
             PositionLabel.Text = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(current_user.Role);
+
+            if (avatar_image.LoadUserAvatar() != null)
+            {
+                AvatarBox.Image = avatar_image.LoadUserAvatar();
+            }
         }
 
         private void ApplyButton_Click(object sender, EventArgs e)
@@ -238,6 +246,28 @@ namespace JellyFlix_MediaHub.UI
             else
             {
                 EmailTextBox.Visible = true;
+            }
+        }
+
+        private void AvatarBox_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog open_file_dialog = new OpenFileDialog())
+            {
+                open_file_dialog.Title = "Select Avatar Image";
+                open_file_dialog.Filter = "Image Files|*.png;*.jpg;*.jpeg|PNG Files|*.png|JPEG Files|*.jpg;*.jpeg";
+                open_file_dialog.FilterIndex = 1;
+                open_file_dialog.RestoreDirectory = true;
+
+                if (open_file_dialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (avatar_image.SaveUserAvatar(open_file_dialog.FileName))
+                    {
+                        AvatarBox.Image = avatar_image.LoadUserAvatar();
+                    } else
+                    {
+                        MessageBox.Show("Failed to save avatar image. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
             }
         }
     }

@@ -37,6 +37,8 @@
             this.BackButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.AvatarBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
             this.InsidePanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.emailText = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.usernameText = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.LogoutButton = new Guna.UI2.WinForms.Guna2Button();
             this.PositionLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.ApplyButton = new Guna.UI2.WinForms.Guna2Button();
@@ -55,8 +57,6 @@
             this.InsideElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.TabDragControl = new Guna.UI2.WinForms.Guna2DragControl(this.components);
             this.ProfilePageTitle = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.usernameText = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.emailText = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.TabBar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AvatarBox)).BeginInit();
             this.InsidePanel.SuspendLayout();
@@ -144,6 +144,7 @@
             // 
             this.AvatarBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.AvatarBox.BackColor = System.Drawing.Color.Transparent;
+            this.AvatarBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AvatarBox.FillColor = System.Drawing.Color.Transparent;
             this.AvatarBox.Image = global::JellyFlix_MediaHub.Properties.Resources.user_tie_solid;
             this.AvatarBox.ImageRotate = 0F;
@@ -154,6 +155,7 @@
             this.AvatarBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.AvatarBox.TabIndex = 8;
             this.AvatarBox.TabStop = false;
+            this.AvatarBox.Click += new System.EventHandler(this.AvatarBox_Click);
             // 
             // InsidePanel
             // 
@@ -188,6 +190,33 @@
             this.InsidePanel.ShadowDecoration.Shadow = new System.Windows.Forms.Padding(0, 0, 10, 10);
             this.InsidePanel.Size = new System.Drawing.Size(1057, 563);
             this.InsidePanel.TabIndex = 9;
+            // 
+            // emailText
+            // 
+            this.emailText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.emailText.BackColor = System.Drawing.Color.Transparent;
+            this.emailText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.emailText.IsSelectionEnabled = false;
+            this.emailText.Location = new System.Drawing.Point(91, 389);
+            this.emailText.Name = "emailText";
+            this.emailText.Size = new System.Drawing.Size(105, 22);
+            this.emailText.TabIndex = 25;
+            this.emailText.Text = "Email Address";
+            this.emailText.Click += new System.EventHandler(this.emailText_Click);
+            // 
+            // usernameText
+            // 
+            this.usernameText.BackColor = System.Drawing.Color.Transparent;
+            this.usernameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.usernameText.IsSelectionEnabled = false;
+            this.usernameText.Location = new System.Drawing.Point(91, 275);
+            this.usernameText.Name = "usernameText";
+            this.usernameText.Size = new System.Drawing.Size(77, 22);
+            this.usernameText.TabIndex = 24;
+            this.usernameText.Text = "Username";
+            this.usernameText.Click += new System.EventHandler(this.usernameText_Click);
             // 
             // LogoutButton
             // 
@@ -466,33 +495,6 @@
             this.ProfilePageTitle.Size = new System.Drawing.Size(80, 33);
             this.ProfilePageTitle.TabIndex = 10;
             this.ProfilePageTitle.Text = "Profile";
-            // 
-            // usernameText
-            // 
-            this.usernameText.BackColor = System.Drawing.Color.Transparent;
-            this.usernameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usernameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
-            this.usernameText.IsSelectionEnabled = false;
-            this.usernameText.Location = new System.Drawing.Point(91, 275);
-            this.usernameText.Name = "usernameText";
-            this.usernameText.Size = new System.Drawing.Size(77, 22);
-            this.usernameText.TabIndex = 24;
-            this.usernameText.Text = "Username";
-            this.usernameText.Click += new System.EventHandler(this.usernameText_Click);
-            // 
-            // emailText
-            // 
-            this.emailText.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.emailText.BackColor = System.Drawing.Color.Transparent;
-            this.emailText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
-            this.emailText.IsSelectionEnabled = false;
-            this.emailText.Location = new System.Drawing.Point(91, 389);
-            this.emailText.Name = "emailText";
-            this.emailText.Size = new System.Drawing.Size(105, 22);
-            this.emailText.TabIndex = 25;
-            this.emailText.Text = "Email Address";
-            this.emailText.Click += new System.EventHandler(this.emailText_Click);
             // 
             // UserProfile
             // 
