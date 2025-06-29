@@ -1,12 +1,13 @@
-﻿using System;
+﻿using JellyFlix_MediaHub.Models;
+using JellyFlix_MediaHub.Utils;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using JellyFlix_MediaHub.Utils;
-using JellyFlix_MediaHub.Models;
-using System.Data;
-using System.Data.SqlClient;
+using System.Web.Security;
 
 namespace JellyFlix_MediaHub.Data.Handlers
 {
@@ -182,6 +183,135 @@ namespace JellyFlix_MediaHub.Data.Handlers
             } catch (Exception e)
             {
                 Console.WriteLine($"Error while updating user: {e.GetType().Name}: {e.Message}");
+                Console.WriteLine($"Stack trace: {e.StackTrace}");
+                return false;
+            }
+        }
+
+        public static List<User> GetAllUsers()
+        {
+            try
+            {
+                List<User> users = new List<User>();
+
+                object query_result = DBOperations.ExecuteOperation(
+                    DatabaseOperation.SELECT,
+                    "Users",
+                    null,
+                    null,
+                    "user_id, username, email, role_id, created_date");
+
+                if (query_result == null)
+                {
+                    Console.WriteLine("No users found in DB");
+                    return users;
+                }
+
+                DataTable result = (DataTable)query_result;
+
+                foreach (DataRow row in result.Rows)
+                {
+                    string role;
+                    switch (row["role_id"].ToString())
+                    {
+                        case "1":
+                            role = "admin";
+                            break;
+                        case "2":
+                            role = "user";
+                            break;
+                        case "3":
+                            role = "premium";
+                            break;
+                        default:
+                            role = "user";
+                            break;
+                    }
+
+                    users.Add(new User
+                    {
+                        UserId = Convert.ToInt32(row["user_id"]),
+                        Username = row["username"].ToString(),
+                        Email = row["email"].ToString(),
+                        Role = role,
+                        CreatedDate = Convert.ToDateTime(row["created_date"])
+                    });
+                }
+                return users;
+            } catch (SqlException e)
+            {
+                Console.WriteLine($"Error fetch all users: {e.Message}");
+                return new List<User>();
+            }
+        }
+
+        public static bool UpdateUserRole(int userId, string new_role)
+        {
+            try
+            {
+                int role_id;
+                switch (new_role.ToLower())
+                {
+                    case "admin":
+                        role_id = 1;
+                        break;
+                    case "premium":
+                        role_id = 3;
+                        break;
+                    case "user":
+                    default:
+                        role_id = 2;
+                        break;
+                }
+
+                var parameters = new Dictionary<string, object>
+                {
+                    { "role_id", role_id }
+                };
+
+                Console.WriteLine($"Updating user role for user ID: {userId} to {new_role}");
+                int result = (int)DBOperations.ExecuteOperation(
+                    DatabaseOperation.UPDATE,
+                    "Users",
+                    parameters,
+                    $"user_id = {userId}");
+                Console.WriteLine($"UPDATE operation result: {result}");
+                return result > 0;
+            } catch (Exception e)
+            {
+                Console.WriteLine($"Error while Update User role : {e.Message}");
+                return false;
+            }
+        }
+
+        public static bool DeleteUser(int userId)
+        {
+            try
+            {
+                var parameters = new Dictionary<string, object>
+                {
+                    { "user_id", userId }
+                };
+
+                Console.WriteLine($"Deleting user with ID: {userId}");
+                int result = (int)DBOperations.ExecuteOperation(
+                    DatabaseOperation.DELETE,
+                    "Users",
+                    parameters,
+                    "user_id = @user_id");
+
+                Console.WriteLine($"DELETE operation result: {result}");
+                return result > 0;
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine($"SQL Error Number: {e.Number}");
+                Console.WriteLine($"SQL Error: {e.Message}");
+                return false;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error while deleting user: {e.GetType().Name}: {e.Message}");
                 Console.WriteLine($"Stack trace: {e.StackTrace}");
                 return false;
             }

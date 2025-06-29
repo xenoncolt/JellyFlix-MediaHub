@@ -87,59 +87,71 @@ namespace JellyFlix_MediaHub.Data
 
         public static object ExecuteOperation(DatabaseOperation operation, string table_name, Dictionary<string, object> parameters, string where_clause = null, string select_columns = "*")
         {
-            string sql;
-
-            switch(operation)
+            try
             {
-                case DatabaseOperation.SELECT:
-                    sql = $"SELECT {select_columns} FROM {table_name}";
-                    if (!string.IsNullOrEmpty(where_clause))
-                    {
-                        sql += $" WHERE {where_clause}";
-                    }
-                    return ExecuteQuery(sql, parameters);
+                string sql;
 
-                case DatabaseOperation.INSERT:
-                    if (parameters == null || parameters.Count == 0)
-                    {
-                        throw new ArgumentException("Parameters are required for INSERT operation");
-                    }
+                switch (operation)
+                {
+                    case DatabaseOperation.SELECT:
+                        sql = $"SELECT {select_columns} FROM {table_name}";
+                        if (!string.IsNullOrEmpty(where_clause))
+                        {
+                            sql += $" WHERE {where_clause}";
+                        }
+                        return ExecuteQuery(sql, parameters);
 
-                    string columns = string.Join(", ", parameters.Keys);
-                    string values = string.Join(", ", parameters.Keys.Select(key => "@" + key));
+                    case DatabaseOperation.INSERT:
+                        if (parameters == null || parameters.Count == 0)
+                        {
+                            throw new ArgumentException("Parameters are required for INSERT operation");
+                        }
 
-                    sql = $"INSERT INTO {table_name} ({columns}) VALUES ({values})";
-                    Console.WriteLine($"Generated SQL: {sql}");
+                        string columns = string.Join(", ", parameters.Keys);
+                        string values = string.Join(", ", parameters.Keys.Select(key => "@" + key));
 
-                    foreach (var param in parameters)
-                    {
-                        Console.WriteLine($"Parameter: {param.Key} = {(param.Value == null ? "NULL" : param.Value.ToString())}");
-                    }
-                    return ExecuteNonQuery(sql, parameters);
+                        sql = $"INSERT INTO {table_name} ({columns}) VALUES ({values})";
+                        Console.WriteLine($"Generated SQL: {sql}");
 
-                case DatabaseOperation.UPDATE:
-                    if (parameters == null || parameters.Count == 0)
-                    {
-                        throw new ArgumentException("Forget a parameters to use UPDATE operation");
-                    }
+                        foreach (var param in parameters)
+                        {
+                            Console.WriteLine($"Parameter: {param.Key} = {(param.Value == null ? "NULL" : param.Value.ToString())}");
+                        }
+                        return ExecuteNonQuery(sql, parameters);
 
-                    if (string.IsNullOrEmpty(where_clause)) throw new ArgumentException("WHERE clauses needed bro");
+                    case DatabaseOperation.UPDATE:
+                        if (parameters == null || parameters.Count == 0)
+                        {
+                            throw new ArgumentException("Forget a parameters to use UPDATE operation");
+                        }
 
-                    string set_clause = string.Join(", ", parameters.Keys.Select(key => $"{key} = @{key}"));
+                        if (string.IsNullOrEmpty(where_clause)) throw new ArgumentException("WHERE clauses needed bro");
 
-                    sql = $"UPDATE {table_name} SET {set_clause} WHERE {where_clause}";
-                    return ExecuteNonQuery(sql, parameters);
+                        var update_params = new Dictionary<string, object>(parameters);
 
-                case DatabaseOperation.DELETE:
-                    if (string.IsNullOrEmpty(where_clause))
-                    {
-                        throw new ArgumentException("WHERE clause need for DELETE Operation");
-                    }
-                    sql = $"DELETE FROM {table_name} WHERE {where_clause}";
-                    return ExecuteNonQuery(sql, parameters);
+                        string set_clause = string.Join(", ", parameters.Keys.Select(key => $"{key} = @{key}"));
 
-                default:
-                    throw new ArgumentException("U r missing something. Only [SELECT, INSERT, UPDATE, DELETE]");
+                        sql = $"UPDATE {table_name} SET {set_clause} WHERE {where_clause}";
+                        return ExecuteNonQuery(sql, update_params);
+
+                    case DatabaseOperation.DELETE:
+                        if (string.IsNullOrEmpty(where_clause))
+                        {
+                            throw new ArgumentException("WHERE clause need for DELETE Operation");
+                        }
+                        sql = $"DELETE FROM {table_name} WHERE {where_clause}";
+                        return ExecuteNonQuery(sql, parameters);
+
+                    default:
+                        throw new ArgumentException("U r missing something. Only [SELECT, INSERT, UPDATE, DELETE]");
+                }
+            } catch (ArgumentException)
+            {
+                throw;
+            } catch (Exception e)
+            {
+                Console.WriteLine($"Operation error: {e.Message}");
+                throw;
             }
         }
     }

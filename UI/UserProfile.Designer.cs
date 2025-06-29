@@ -32,7 +32,6 @@
             this.Elipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.TabBar = new Guna.UI2.WinForms.Guna2ContainerControl();
             this.MinimizeApp = new Guna.UI2.WinForms.Guna2ControlBox();
-            this.MaximizeApp = new Guna.UI2.WinForms.Guna2ControlBox();
             this.CloseApp = new Guna.UI2.WinForms.Guna2ControlBox();
             this.BackButton = new Guna.UI2.WinForms.Guna2ImageButton();
             this.AvatarBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
@@ -71,7 +70,6 @@
             // 
             this.TabBar.BackColor = System.Drawing.Color.Transparent;
             this.TabBar.Controls.Add(this.MinimizeApp);
-            this.TabBar.Controls.Add(this.MaximizeApp);
             this.TabBar.Controls.Add(this.CloseApp);
             this.TabBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.TabBar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(23)))), ((int)(((byte)(53)))));
@@ -89,25 +87,10 @@
             this.MinimizeApp.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
             this.MinimizeApp.HoverState.IconColor = System.Drawing.Color.White;
             this.MinimizeApp.IconColor = System.Drawing.Color.White;
-            this.MinimizeApp.Location = new System.Drawing.Point(1165, 0);
+            this.MinimizeApp.Location = new System.Drawing.Point(1199, 0);
             this.MinimizeApp.Name = "MinimizeApp";
             this.MinimizeApp.Size = new System.Drawing.Size(39, 29);
             this.MinimizeApp.TabIndex = 1;
-            // 
-            // MaximizeApp
-            // 
-            this.MaximizeApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.MaximizeApp.Animated = true;
-            this.MaximizeApp.ControlBoxType = Guna.UI2.WinForms.Enums.ControlBoxType.MaximizeBox;
-            this.MaximizeApp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.MaximizeApp.FillColor = System.Drawing.Color.Transparent;
-            this.MaximizeApp.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(102)))), ((int)(((byte)(255)))));
-            this.MaximizeApp.HoverState.IconColor = System.Drawing.Color.White;
-            this.MaximizeApp.IconColor = System.Drawing.Color.White;
-            this.MaximizeApp.Location = new System.Drawing.Point(1204, 0);
-            this.MaximizeApp.Name = "MaximizeApp";
-            this.MaximizeApp.Size = new System.Drawing.Size(39, 29);
-            this.MaximizeApp.TabIndex = 1;
             // 
             // CloseApp
             // 
@@ -117,7 +100,7 @@
             this.CloseApp.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(28)))), ((int)(((byte)(17)))));
             this.CloseApp.HoverState.IconColor = System.Drawing.Color.White;
             this.CloseApp.IconColor = System.Drawing.Color.White;
-            this.CloseApp.Location = new System.Drawing.Point(1243, 0);
+            this.CloseApp.Location = new System.Drawing.Point(1240, 0);
             this.CloseApp.Name = "CloseApp";
             this.CloseApp.Size = new System.Drawing.Size(39, 29);
             this.CloseApp.TabIndex = 1;
@@ -198,7 +181,7 @@
             this.emailText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
             this.emailText.IsSelectionEnabled = false;
-            this.emailText.Location = new System.Drawing.Point(91, 389);
+            this.emailText.Location = new System.Drawing.Point(88, 389);
             this.emailText.Name = "emailText";
             this.emailText.Size = new System.Drawing.Size(105, 22);
             this.emailText.TabIndex = 25;
@@ -211,7 +194,7 @@
             this.usernameText.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameText.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
             this.usernameText.IsSelectionEnabled = false;
-            this.usernameText.Location = new System.Drawing.Point(91, 275);
+            this.usernameText.Location = new System.Drawing.Point(88, 275);
             this.usernameText.Name = "usernameText";
             this.usernameText.Size = new System.Drawing.Size(77, 22);
             this.usernameText.TabIndex = 24;
@@ -230,7 +213,7 @@
             this.LogoutButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.LogoutButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.LogoutButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.LogoutButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LogoutButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(13)))), ((int)(((byte)(30)))));
             this.LogoutButton.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
             this.LogoutButton.ForeColor = System.Drawing.Color.White;
             this.LogoutButton.Location = new System.Drawing.Point(43, 484);
@@ -265,7 +248,7 @@
             this.ApplyButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
             this.ApplyButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
             this.ApplyButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.ApplyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(116)))), ((int)(((byte)(195)))));
+            this.ApplyButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(97)))), ((int)(((byte)(238)))));
             this.ApplyButton.Font = new System.Drawing.Font("Comic Sans MS", 14.25F);
             this.ApplyButton.ForeColor = System.Drawing.Color.White;
             this.ApplyButton.Location = new System.Drawing.Point(857, 484);
@@ -336,6 +319,7 @@
             this.ConfirmPasswordTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.ConfirmPasswordTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.ConfirmPasswordTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.ConfirmPasswordTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(237)))));
             this.ConfirmPasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.ConfirmPasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.ConfirmPasswordTextBox.ForeColor = System.Drawing.Color.Black;
@@ -371,6 +355,7 @@
             this.PasswordTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.PasswordTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.PasswordTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.PasswordTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(237)))));
             this.PasswordTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.PasswordTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.PasswordTextBox.ForeColor = System.Drawing.Color.Black;
@@ -408,6 +393,7 @@
             this.EmailTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.EmailTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.EmailTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.EmailTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(237)))));
             this.EmailTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.EmailTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.EmailTextBox.ForeColor = System.Drawing.Color.Black;
@@ -446,6 +432,7 @@
             this.UsernameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
             this.UsernameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
             this.UsernameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.UsernameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(237)))));
             this.UsernameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.UsernameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.UsernameTextBox.ForeColor = System.Drawing.Color.Black;
@@ -525,7 +512,6 @@
         private Guna.UI2.WinForms.Guna2Elipse Elipse;
         private Guna.UI2.WinForms.Guna2ContainerControl TabBar;
         private Guna.UI2.WinForms.Guna2ControlBox MinimizeApp;
-        private Guna.UI2.WinForms.Guna2ControlBox MaximizeApp;
         private Guna.UI2.WinForms.Guna2ControlBox CloseApp;
         private Guna.UI2.WinForms.Guna2ImageButton BackButton;
         private Guna.UI2.WinForms.Guna2Panel InsidePanel;
