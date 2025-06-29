@@ -1,6 +1,8 @@
 ﻿using Guna.UI2.WinForms;
 using JellyFlix_MediaHub.Data.Handlers;
 using JellyFlix_MediaHub.Models;
+using JellyFlix_MediaHub.Services.Prowlarr;
+using JellyFlix_MediaHub.Services.TMDB;
 using JellyFlix_MediaHub.Utils;
 using System;
 using System.Collections.Generic;
@@ -9,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -47,6 +50,38 @@ namespace JellyFlix_MediaHub.UI
             }
 
             LoadAllUsers();
+            LoadApiConfig();
+
+            if (currentUser.Role == "admin" && !AreApiKeysConfigured())
+            {
+                MsgBox.Caption = "API Configuration Required";
+                MsgBox.Text = "Please configure the TMDB and Prowlarr API keys in the Server Config section to enable full functionality...";
+                MsgBox.Icon = MessageDialogIcon.Information;
+                MsgBox.Buttons = MessageDialogButtons.OK;
+
+                if (MsgBox.Show() == DialogResult.OK)
+                {
+                    NavMenu.SelectedTab = SettingsTab;
+                    SettingsMenu.SelectedTab = ServerSettingsPage;
+                }
+            }
+        }
+
+        private bool AreApiKeysConfigured()
+        {
+            var config = Utils.ConfigManager.LoadConfig();
+            return !string.IsNullOrEmpty(config.TmdbApiKey) &&
+                   !string.IsNullOrEmpty(config.ProwlarrApiKey) &&
+                   !string.IsNullOrEmpty(config.ProwlarrBaseUrl);
+        }
+
+        private void LoadApiConfig()
+        {
+            var config = Utils.ConfigManager.LoadConfig();
+
+            TMDBApiTextBox.Text = config.TmdbApiKey ?? "";
+            ProwlarrApiTextBox.Text = config.ProwlarrApiKey ?? "";
+            ProwlarrUrlTextBox.Text = config.ProwlarrBaseUrl ?? "";
         }
 
         private void LoadAllUsers()
@@ -262,6 +297,118 @@ namespace JellyFlix_MediaHub.UI
                     MsgBox.Show();
                 }
             }
+        }
+
+        private void ProwlarrUrlTextBox_Leave(object sender, EventArgs e)
+        {
+            string url = ProwlarrUrlTextBox.Text.Trim();
+
+            try
+            {
+                Uri uri = new Uri(url);
+                ProwlarrUrlErrorMsg.Visible = false;
+            }
+            catch (UriFormatException)
+            {
+                ProwlarrUrlErrorMsg.Text = "Invalid URL format";
+                ProwlarrUrlErrorMsg.ForeColor = Color.Red;
+                ProwlarrUrlErrorMsg.Visible = true;
+            }
+        }
+
+        private async void TMDBApiTextBox_Leave(object sender, EventArgs e)
+        {
+            string api_key = TMDBApiTextBox.Text.Trim();
+            if (string.IsNullOrEmpty(api_key)) return;
+
+            TMDBErrorMsg.Text = "Checking API Key...";
+            TMDBErrorMsg.Visible = true;
+            TMDBErrorMsg.ForeColor = Color.Yellow;
+
+            if (await TMDBValidator.ValidApiKey(api_key))
+            {
+                TMDBErrorMsg.Text = "Connection Successful";
+                TMDBErrorMsg.ForeColor = Color.Green;
+            }
+            else
+            {
+                TMDBErrorMsg.Text = "Invalid API key";
+                TMDBErrorMsg.ForeColor = Color.Red;
+            }
+        }
+
+        private async void ProwlarrApiTextBox_Leave(object sender, EventArgs e)
+        {
+            string api_key = ProwlarrApiTextBox.Text.Trim();
+            string base_url = ProwlarrUrlTextBox.Text.Trim();
+
+            if (string.IsNullOrEmpty(base_url))
+            {
+                ProwlarrErrorMsg.Text = "Please enter Prowlarr URL first";
+                ProwlarrErrorMsg.ForeColor = Color.Red;
+                ProwlarrErrorMsg.Visible = true;
+                return;
+            }
+
+            ProwlarrErrorMsg.Text = "Checking API Key...";
+            ProwlarrErrorMsg.Visible = true;
+            ProwlarrErrorMsg.ForeColor = Color.Yellow;
+
+            if (await ProwlarrValidation.ValidateApiKey(base_url, api_key))
+            {
+                ProwlarrErrorMsg.Text = "Connection successful";
+                ProwlarrErrorMsg.ForeColor = Color.Green;
+            }
+            else
+            {
+                ProwlarrErrorMsg.Text = "Invalid API key or URL";
+                ProwlarrErrorMsg.ForeColor = Color.Red;
+            }
+        }
+
+        private void ApplyButton_Click(object sender, EventArgs e)
+        {
+            var config = new AppConfig
+            {
+                TmdbApiKey = TMDBApiTextBox.Text.Trim(),
+                ProwlarrApiKey = ProwlarrApiTextBox.Text.Trim(),
+                ProwlarrBaseUrl = ProwlarrUrlTextBox.Text.Trim()
+            };
+
+            if (!String.IsNullOrEmpty(config.TmdbApiKey) && !String.IsNullOrEmpty(config.ProwlarrApiKey) && !String.IsNullOrEmpty(config.ProwlarrBaseUrl)) return;
+
+            if (ConfigManager.SaveConfig(config))
+            {
+                MsgBox.Caption = "Success";
+                MsgBox.Text = "API configuration saved successfully.";
+                MsgBox.Icon = MessageDialogIcon.Information;
+                MsgBox.Buttons = MessageDialogButtons.OK;
+                MsgBox.Show();
+            } else
+            {
+                MsgBox.Caption = "Error";
+                MsgBox.Text = "Failed to save API configuration.";
+                MsgBox.Icon = MessageDialogIcon.Error;
+                MsgBox.Buttons = MessageDialogButtons.OK;
+                MsgBox.Show();
+            }
+        }
+
+        private void InviteEmailTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!Regex.IsMatch(InviteEmailTextBox.Text, @"^[^@\s]+@gmail\.com$"))
+            {
+                InviteEmailErrorMsg.Visible = true;
+            }
+            else
+            {
+                InviteEmailErrorMsg.Visible = false;
+            }
+        }
+
+        private void CheckMarkBox_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

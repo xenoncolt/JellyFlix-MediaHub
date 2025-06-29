@@ -548,10 +548,13 @@
     <Compile Include="Data\DBManager.cs" />
     <Compile Include="Data\DBOperations.cs" />
     <Compile Include="Data\Handlers\UserHandle.cs" />
+    <Compile Include="Models\AppConfig.cs" />
     <Compile Include="Models\DB\User.cs" />
     <Compile Include="Models\Prowlarr\ProwlarrSearchResult.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\Prowlarr\ProwlarrValidation.cs" />
+    <Compile Include="Services\TMDB\TMDBValidator.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="UI\Login.cs">
       <SubType>Form</SubType>
@@ -579,8 +582,10 @@
     </Compile>
     <Compile Include="Utils\App.cs" />
     <Compile Include="Utils\AvatarImage.cs" />
+    <Compile Include="Utils\ConfigManager.cs" />
     <Compile Include="Utils\PasswordSecure.cs" />
     <Content Include="JellyFilx.ico" />
+    <None Include="Resources\Icon\check-solid.png" />
     <EmbeddedResource Include="UI\UserProfile.resx">
       <DependentUpon>UserProfile.cs</DependentUpon>
     </EmbeddedResource>
@@ -632,7 +637,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\TMDB\" />
-    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
