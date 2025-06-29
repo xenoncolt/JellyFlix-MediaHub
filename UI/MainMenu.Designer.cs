@@ -59,7 +59,9 @@
             this.ServerSettingsPage = new System.Windows.Forms.TabPage();
             this.SMTPPortErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.ProwlarrUrlErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2HtmlLabel11 = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.SMTPPassErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.SMTPUsernameErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.SMTPEmailErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.ProwlarrErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SMTPHostErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.TMDBErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -68,10 +70,14 @@
             this.TMDBApiLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SMTPPortLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.ProwlarrUrlLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.SMTPPassLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
+            this.SMTPUsernameLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2HtmlLabel6 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.ProwlarrApilLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.SMTPPortTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.SMTPPassTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.ProwlarrUrlTextBox = new Guna.UI2.WinForms.Guna2TextBox();
+            this.SMTPUsernameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.SMTPHostTextBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.TMDBApiTextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -99,12 +105,6 @@
             this.InviteEmailLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.InviteHeadingLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.MsgBox = new Guna.UI2.WinForms.Guna2MessageDialog();
-            this.SMTPUsernameTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.SMTPUsernameLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.SMTPUsernameErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.SMTPPassTextBox = new Guna.UI2.WinForms.Guna2TextBox();
-            this.SMTPPassLabel = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.SMTPPassErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.TabBar.SuspendLayout();
             this.HeadingSection.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ProfileBox)).BeginInit();
@@ -462,7 +462,7 @@
             this.ServerSettingsPage.Controls.Add(this.ProwlarrUrlErrorMsg);
             this.ServerSettingsPage.Controls.Add(this.SMTPPassErrorMsg);
             this.ServerSettingsPage.Controls.Add(this.SMTPUsernameErrorMsg);
-            this.ServerSettingsPage.Controls.Add(this.guna2HtmlLabel11);
+            this.ServerSettingsPage.Controls.Add(this.SMTPEmailErrorMsg);
             this.ServerSettingsPage.Controls.Add(this.ProwlarrErrorMsg);
             this.ServerSettingsPage.Controls.Add(this.SMTPHostErrorMsg);
             this.ServerSettingsPage.Controls.Add(this.TMDBErrorMsg);
@@ -514,17 +514,41 @@
             this.ProwlarrUrlErrorMsg.Text = "*Username already exist. Must be unique.";
             this.ProwlarrUrlErrorMsg.Visible = false;
             // 
-            // guna2HtmlLabel11
+            // SMTPPassErrorMsg
             // 
-            this.guna2HtmlLabel11.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(40)))), ((int)(((byte)(39)))));
-            this.guna2HtmlLabel11.Location = new System.Drawing.Point(576, 329);
-            this.guna2HtmlLabel11.Name = "guna2HtmlLabel11";
-            this.guna2HtmlLabel11.Size = new System.Drawing.Size(232, 17);
-            this.guna2HtmlLabel11.TabIndex = 24;
-            this.guna2HtmlLabel11.Text = "*Can\'t be empty If you want to setup SMTP";
-            this.guna2HtmlLabel11.Visible = false;
+            this.SMTPPassErrorMsg.BackColor = System.Drawing.Color.Transparent;
+            this.SMTPPassErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SMTPPassErrorMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(40)))), ((int)(((byte)(39)))));
+            this.SMTPPassErrorMsg.Location = new System.Drawing.Point(576, 436);
+            this.SMTPPassErrorMsg.Name = "SMTPPassErrorMsg";
+            this.SMTPPassErrorMsg.Size = new System.Drawing.Size(232, 17);
+            this.SMTPPassErrorMsg.TabIndex = 24;
+            this.SMTPPassErrorMsg.Text = "*Can\'t be empty If you want to setup SMTP";
+            this.SMTPPassErrorMsg.Visible = false;
+            // 
+            // SMTPUsernameErrorMsg
+            // 
+            this.SMTPUsernameErrorMsg.BackColor = System.Drawing.Color.Transparent;
+            this.SMTPUsernameErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SMTPUsernameErrorMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(40)))), ((int)(((byte)(39)))));
+            this.SMTPUsernameErrorMsg.Location = new System.Drawing.Point(46, 436);
+            this.SMTPUsernameErrorMsg.Name = "SMTPUsernameErrorMsg";
+            this.SMTPUsernameErrorMsg.Size = new System.Drawing.Size(232, 17);
+            this.SMTPUsernameErrorMsg.TabIndex = 24;
+            this.SMTPUsernameErrorMsg.Text = "*Can\'t be empty If you want to setup SMTP";
+            this.SMTPUsernameErrorMsg.Visible = false;
+            // 
+            // SMTPEmailErrorMsg
+            // 
+            this.SMTPEmailErrorMsg.BackColor = System.Drawing.Color.Transparent;
+            this.SMTPEmailErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SMTPEmailErrorMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(40)))), ((int)(((byte)(39)))));
+            this.SMTPEmailErrorMsg.Location = new System.Drawing.Point(576, 329);
+            this.SMTPEmailErrorMsg.Name = "SMTPEmailErrorMsg";
+            this.SMTPEmailErrorMsg.Size = new System.Drawing.Size(232, 17);
+            this.SMTPEmailErrorMsg.TabIndex = 24;
+            this.SMTPEmailErrorMsg.Text = "*Can\'t be empty If you want to setup SMTP";
+            this.SMTPEmailErrorMsg.Visible = false;
             // 
             // ProwlarrErrorMsg
             // 
@@ -631,6 +655,30 @@
             this.ProwlarrUrlLabel.TabIndex = 18;
             this.ProwlarrUrlLabel.Text = "Prowlarr Host";
             // 
+            // SMTPPassLabel
+            // 
+            this.SMTPPassLabel.BackColor = System.Drawing.Color.Transparent;
+            this.SMTPPassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SMTPPassLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.SMTPPassLabel.IsSelectionEnabled = false;
+            this.SMTPPassLabel.Location = new System.Drawing.Point(576, 370);
+            this.SMTPPassLabel.Name = "SMTPPassLabel";
+            this.SMTPPassLabel.Size = new System.Drawing.Size(119, 22);
+            this.SMTPPassLabel.TabIndex = 18;
+            this.SMTPPassLabel.Text = "SMTP Password";
+            // 
+            // SMTPUsernameLabel
+            // 
+            this.SMTPUsernameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.SMTPUsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SMTPUsernameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
+            this.SMTPUsernameLabel.IsSelectionEnabled = false;
+            this.SMTPUsernameLabel.Location = new System.Drawing.Point(46, 370);
+            this.SMTPUsernameLabel.Name = "SMTPUsernameLabel";
+            this.SMTPUsernameLabel.Size = new System.Drawing.Size(124, 22);
+            this.SMTPUsernameLabel.TabIndex = 18;
+            this.SMTPUsernameLabel.Text = "SMTP Username";
+            // 
             // guna2HtmlLabel6
             // 
             this.guna2HtmlLabel6.BackColor = System.Drawing.Color.Transparent;
@@ -659,7 +707,6 @@
             // 
             this.SMTPPortTextBox.AcceptsReturn = true;
             this.SMTPPortTextBox.BorderRadius = 12;
-            this.SMTPPortTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.SMTPPortTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.SMTPPortTextBox.DefaultText = "";
             this.SMTPPortTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -679,11 +726,33 @@
             this.SMTPPortTextBox.TabIndex = 17;
             this.SMTPPortTextBox.Leave += new System.EventHandler(this.ProwlarrUrlTextBox_Leave);
             // 
+            // SMTPPassTextBox
+            // 
+            this.SMTPPassTextBox.AcceptsReturn = true;
+            this.SMTPPassTextBox.BorderRadius = 12;
+            this.SMTPPassTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.SMTPPassTextBox.DefaultText = "";
+            this.SMTPPassTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.SMTPPassTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.SMTPPassTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SMTPPassTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SMTPPassTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(237)))));
+            this.SMTPPassTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SMTPPassTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SMTPPassTextBox.ForeColor = System.Drawing.Color.Black;
+            this.SMTPPassTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SMTPPassTextBox.Location = new System.Drawing.Point(576, 398);
+            this.SMTPPassTextBox.Name = "SMTPPassTextBox";
+            this.SMTPPassTextBox.PlaceholderText = "AWDawdawdada412awAWdad";
+            this.SMTPPassTextBox.SelectedText = "";
+            this.SMTPPassTextBox.Size = new System.Drawing.Size(396, 36);
+            this.SMTPPassTextBox.TabIndex = 17;
+            this.SMTPPassTextBox.Leave += new System.EventHandler(this.ProwlarrApiTextBox_Leave);
+            // 
             // ProwlarrUrlTextBox
             // 
             this.ProwlarrUrlTextBox.AcceptsReturn = true;
             this.ProwlarrUrlTextBox.BorderRadius = 12;
-            this.ProwlarrUrlTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.ProwlarrUrlTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ProwlarrUrlTextBox.DefaultText = "";
             this.ProwlarrUrlTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -703,11 +772,33 @@
             this.ProwlarrUrlTextBox.TabIndex = 17;
             this.ProwlarrUrlTextBox.Leave += new System.EventHandler(this.ProwlarrUrlTextBox_Leave);
             // 
+            // SMTPUsernameTextBox
+            // 
+            this.SMTPUsernameTextBox.AcceptsReturn = true;
+            this.SMTPUsernameTextBox.BorderRadius = 12;
+            this.SMTPUsernameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.SMTPUsernameTextBox.DefaultText = "";
+            this.SMTPUsernameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.SMTPUsernameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.SMTPUsernameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SMTPUsernameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.SMTPUsernameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(237)))));
+            this.SMTPUsernameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SMTPUsernameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.SMTPUsernameTextBox.ForeColor = System.Drawing.Color.Black;
+            this.SMTPUsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.SMTPUsernameTextBox.Location = new System.Drawing.Point(46, 398);
+            this.SMTPUsernameTextBox.Name = "SMTPUsernameTextBox";
+            this.SMTPUsernameTextBox.PlaceholderText = "AWDawdawdada412awAWdad";
+            this.SMTPUsernameTextBox.SelectedText = "";
+            this.SMTPUsernameTextBox.Size = new System.Drawing.Size(396, 36);
+            this.SMTPUsernameTextBox.TabIndex = 17;
+            this.SMTPUsernameTextBox.Leave += new System.EventHandler(this.ProwlarrApiTextBox_Leave);
+            // 
             // SMTPHostTextBox
             // 
             this.SMTPHostTextBox.AcceptsReturn = true;
             this.SMTPHostTextBox.BorderRadius = 12;
-            this.SMTPHostTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.SMTPHostTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.SMTPHostTextBox.DefaultText = "";
             this.SMTPHostTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -731,7 +822,6 @@
             // 
             this.guna2TextBox1.AcceptsReturn = true;
             this.guna2TextBox1.BorderRadius = 12;
-            this.guna2TextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.guna2TextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.guna2TextBox1.DefaultText = "";
             this.guna2TextBox1.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -755,7 +845,6 @@
             // 
             this.TMDBApiTextBox.AcceptsReturn = true;
             this.TMDBApiTextBox.BorderRadius = 12;
-            this.TMDBApiTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.TMDBApiTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.TMDBApiTextBox.DefaultText = "";
             this.TMDBApiTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -779,7 +868,6 @@
             // 
             this.ProwlarrApiTextBox.AcceptsReturn = true;
             this.ProwlarrApiTextBox.BorderRadius = 12;
-            this.ProwlarrApiTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.ProwlarrApiTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ProwlarrApiTextBox.DefaultText = "";
             this.ProwlarrApiTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
@@ -1113,102 +1201,6 @@
             this.MsgBox.Style = Guna.UI2.WinForms.MessageDialogStyle.Dark;
             this.MsgBox.Text = null;
             // 
-            // SMTPUsernameTextBox
-            // 
-            this.SMTPUsernameTextBox.AcceptsReturn = true;
-            this.SMTPUsernameTextBox.BorderRadius = 12;
-            this.SMTPUsernameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.SMTPUsernameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.SMTPUsernameTextBox.DefaultText = "";
-            this.SMTPUsernameTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.SMTPUsernameTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.SMTPUsernameTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.SMTPUsernameTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.SMTPUsernameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(237)))));
-            this.SMTPUsernameTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SMTPUsernameTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.SMTPUsernameTextBox.ForeColor = System.Drawing.Color.Black;
-            this.SMTPUsernameTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SMTPUsernameTextBox.Location = new System.Drawing.Point(46, 398);
-            this.SMTPUsernameTextBox.Name = "SMTPUsernameTextBox";
-            this.SMTPUsernameTextBox.PlaceholderText = "AWDawdawdada412awAWdad";
-            this.SMTPUsernameTextBox.SelectedText = "";
-            this.SMTPUsernameTextBox.Size = new System.Drawing.Size(396, 36);
-            this.SMTPUsernameTextBox.TabIndex = 17;
-            this.SMTPUsernameTextBox.Leave += new System.EventHandler(this.ProwlarrApiTextBox_Leave);
-            // 
-            // SMTPUsernameLabel
-            // 
-            this.SMTPUsernameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.SMTPUsernameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SMTPUsernameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
-            this.SMTPUsernameLabel.IsSelectionEnabled = false;
-            this.SMTPUsernameLabel.Location = new System.Drawing.Point(46, 370);
-            this.SMTPUsernameLabel.Name = "SMTPUsernameLabel";
-            this.SMTPUsernameLabel.Size = new System.Drawing.Size(124, 22);
-            this.SMTPUsernameLabel.TabIndex = 18;
-            this.SMTPUsernameLabel.Text = "SMTP Username";
-            // 
-            // SMTPUsernameErrorMsg
-            // 
-            this.SMTPUsernameErrorMsg.BackColor = System.Drawing.Color.Transparent;
-            this.SMTPUsernameErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SMTPUsernameErrorMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(40)))), ((int)(((byte)(39)))));
-            this.SMTPUsernameErrorMsg.Location = new System.Drawing.Point(46, 436);
-            this.SMTPUsernameErrorMsg.Name = "SMTPUsernameErrorMsg";
-            this.SMTPUsernameErrorMsg.Size = new System.Drawing.Size(232, 17);
-            this.SMTPUsernameErrorMsg.TabIndex = 24;
-            this.SMTPUsernameErrorMsg.Text = "*Can\'t be empty If you want to setup SMTP";
-            this.SMTPUsernameErrorMsg.Visible = false;
-            // 
-            // SMTPPassTextBox
-            // 
-            this.SMTPPassTextBox.AcceptsReturn = true;
-            this.SMTPPassTextBox.BorderRadius = 12;
-            this.SMTPPassTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
-            this.SMTPPassTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.SMTPPassTextBox.DefaultText = "";
-            this.SMTPPassTextBox.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.SMTPPassTextBox.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.SMTPPassTextBox.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.SMTPPassTextBox.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.SMTPPassTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(237)))));
-            this.SMTPPassTextBox.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SMTPPassTextBox.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.SMTPPassTextBox.ForeColor = System.Drawing.Color.Black;
-            this.SMTPPassTextBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SMTPPassTextBox.Location = new System.Drawing.Point(576, 398);
-            this.SMTPPassTextBox.Name = "SMTPPassTextBox";
-            this.SMTPPassTextBox.PlaceholderText = "AWDawdawdada412awAWdad";
-            this.SMTPPassTextBox.SelectedText = "";
-            this.SMTPPassTextBox.Size = new System.Drawing.Size(396, 36);
-            this.SMTPPassTextBox.TabIndex = 17;
-            this.SMTPPassTextBox.Leave += new System.EventHandler(this.ProwlarrApiTextBox_Leave);
-            // 
-            // SMTPPassLabel
-            // 
-            this.SMTPPassLabel.BackColor = System.Drawing.Color.Transparent;
-            this.SMTPPassLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SMTPPassLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(204)))), ((int)(((byte)(220)))));
-            this.SMTPPassLabel.IsSelectionEnabled = false;
-            this.SMTPPassLabel.Location = new System.Drawing.Point(576, 370);
-            this.SMTPPassLabel.Name = "SMTPPassLabel";
-            this.SMTPPassLabel.Size = new System.Drawing.Size(119, 22);
-            this.SMTPPassLabel.TabIndex = 18;
-            this.SMTPPassLabel.Text = "SMTP Password";
-            // 
-            // SMTPPassErrorMsg
-            // 
-            this.SMTPPassErrorMsg.BackColor = System.Drawing.Color.Transparent;
-            this.SMTPPassErrorMsg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SMTPPassErrorMsg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(40)))), ((int)(((byte)(39)))));
-            this.SMTPPassErrorMsg.Location = new System.Drawing.Point(576, 436);
-            this.SMTPPassErrorMsg.Name = "SMTPPassErrorMsg";
-            this.SMTPPassErrorMsg.Size = new System.Drawing.Size(232, 17);
-            this.SMTPPassErrorMsg.TabIndex = 24;
-            this.SMTPPassErrorMsg.Text = "*Can\'t be empty If you want to setup SMTP";
-            this.SMTPPassErrorMsg.Visible = false;
-            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1319,7 +1311,7 @@
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox CheckMarkBox;
         private Guna.UI2.WinForms.Guna2HtmlLabel SMTPPortErrorMsg;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel11;
+        private Guna.UI2.WinForms.Guna2HtmlLabel SMTPEmailErrorMsg;
         private Guna.UI2.WinForms.Guna2HtmlLabel SMTPHostErrorMsg;
         private Guna.UI2.WinForms.Guna2HtmlLabel SMTPHostLabel;
         private Guna.UI2.WinForms.Guna2HtmlLabel SMTPPortLabel;

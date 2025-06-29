@@ -11,5 +11,13 @@ namespace JellyFlix_MediaHub.Models
         public string TmdbApiKey { get; set; }
         public string ProwlarrApiKey { get; set; }
         public string ProwlarrBaseUrl { get; set; }
+        public string SmtpHost { get; set; }
+        public int? SmtpPort { get; set; }
+        public string SmtpUsername { get; set; }
+        public string SmtpPassword { get; set; }
+        public bool SmtpConfigured => !string.IsNullOrEmpty(SmtpHost) &&
+                             SmtpPort.HasValue &&
+                             !string.IsNullOrEmpty(SmtpUsername) &&
+                             !string.IsNullOrEmpty(SmtpPassword);
     }
 }

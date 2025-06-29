@@ -7,6 +7,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Animation;
 
 namespace JellyFlix_MediaHub.Utils
 {
@@ -17,8 +18,16 @@ namespace JellyFlix_MediaHub.Utils
             "JellyFlix_MediaHub");
 
         private static readonly string ConfigFilePath = Path.Combine(AppDataFolder, "config.json");
-        private static readonly byte[] EncryptionKey = Encoding.UTF8.GetBytes("JF_SECURE_KEY_FOR_API_STORAGE_JELLFLIX_HUB_23");
+        private static readonly byte[] EncryptionKey = DeriveKey("JF_SECURE_KEY_FOR_API_STORAGE_JELLFLIX_HUB_23", 32);
 
+        private static byte[] DeriveKey(string passphrase, int key_size)
+        {
+            using (var deriveBytes = new Rfc2898DeriveBytes(passphrase,
+                   Encoding.UTF8.GetBytes("JellyFlixSalt"), 10000))
+            {
+                return deriveBytes.GetBytes(key_size);
+            }
+        }
 
         public static AppConfig LoadConfig()
         {
@@ -31,6 +40,10 @@ namespace JellyFlix_MediaHub.Utils
 
                 string encryptedJson = File.ReadAllText(ConfigFilePath);
                 string decryptedJson = Decrypt(encryptedJson);
+                if (string.IsNullOrEmpty(decryptedJson))
+                {
+                    return new AppConfig();
+                }
                 return JsonConvert.DeserializeObject<AppConfig>(decryptedJson) ?? new AppConfig();
             }
             catch (Exception ex)
@@ -51,6 +64,12 @@ namespace JellyFlix_MediaHub.Utils
 
                 string json = JsonConvert.SerializeObject(config, Formatting.Indented);
                 string encryptedJson = Encrypt(json);
+
+                if (string.IsNullOrEmpty(encryptedJson))
+                {
+                    return false;
+                }
+
                 File.WriteAllText(ConfigFilePath, encryptedJson);
                 return true;
             }
@@ -75,6 +94,8 @@ namespace JellyFlix_MediaHub.Utils
                 {
                     aes.Key = EncryptionKey;
                     aes.IV = iv;
+                    aes.Mode = CipherMode.CBC; 
+                    aes.Padding = PaddingMode.PKCS7; 
 
                     ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
 
@@ -105,6 +126,12 @@ namespace JellyFlix_MediaHub.Utils
             {
                 byte[] fullCipher = Convert.FromBase64String(cipherText);
 
+                if (fullCipher.Length < 16)
+                {
+                    Console.WriteLine("Invalid cipher text: too short");
+                    return string.Empty;
+                }
+
                 // Get the IV from the first 16 bytes
                 byte[] iv = new byte[16];
                 byte[] cipher = new byte[fullCipher.Length - 16];
@@ -116,6 +143,8 @@ namespace JellyFlix_MediaHub.Utils
                 {
                     aes.Key = EncryptionKey;
                     aes.IV = iv;
+                    aes.Mode = CipherMode.CBC; 
+                    aes.Padding = PaddingMode.PKCS7;
 
                     ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
@@ -126,6 +155,10 @@ namespace JellyFlix_MediaHub.Utils
                         return streamReader.ReadToEnd();
                     }
                 }
+            } catch (CryptographicException ex)
+            {
+                Console.WriteLine($"Decryption error: {ex.Message}");
+                return string.Empty;
             }
             catch (Exception ex)
             {

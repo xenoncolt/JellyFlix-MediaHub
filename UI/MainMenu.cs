@@ -1,6 +1,7 @@
 ﻿using Guna.UI2.WinForms;
 using JellyFlix_MediaHub.Data.Handlers;
 using JellyFlix_MediaHub.Models;
+using JellyFlix_MediaHub.Services;
 using JellyFlix_MediaHub.Services.Prowlarr;
 using JellyFlix_MediaHub.Services.TMDB;
 using JellyFlix_MediaHub.Utils;
@@ -14,6 +15,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace JellyFlix_MediaHub.UI
 {
@@ -77,11 +79,15 @@ namespace JellyFlix_MediaHub.UI
 
         private void LoadApiConfig()
         {
-            var config = Utils.ConfigManager.LoadConfig();
+            var config = ConfigManager.LoadConfig();
 
             TMDBApiTextBox.Text = config.TmdbApiKey ?? "";
             ProwlarrApiTextBox.Text = config.ProwlarrApiKey ?? "";
             ProwlarrUrlTextBox.Text = config.ProwlarrBaseUrl ?? "";
+            SMTPHostTextBox.Text = config.SmtpHost ?? "";
+            SMTPPortTextBox.Text = config.SmtpPort?.ToString() ?? "";
+            SMTPUsernameTextBox.Text = config.SmtpUsername ?? "";
+            SMTPPassTextBox.Text = config.SmtpPassword ?? "";
         }
 
         private void LoadAllUsers()
@@ -368,14 +374,43 @@ namespace JellyFlix_MediaHub.UI
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
+            int? smtp_port = null;
+            if (!string.IsNullOrEmpty(SMTPPortTextBox.Text) && int.TryParse(SMTPPortTextBox.Text, out int port))
+            {
+                smtp_port = port;
+            }
             var config = new AppConfig
             {
                 TmdbApiKey = TMDBApiTextBox.Text.Trim(),
                 ProwlarrApiKey = ProwlarrApiTextBox.Text.Trim(),
-                ProwlarrBaseUrl = ProwlarrUrlTextBox.Text.Trim()
+                ProwlarrBaseUrl = ProwlarrUrlTextBox.Text.Trim(),
+                SmtpHost = SMTPHostTextBox.Text.Trim(),
+                SmtpPort = smtp_port,
+                SmtpUsername = SMTPUsernameTextBox.Text.Trim(),
+                SmtpPassword = SMTPPassTextBox.Text.Trim()
             };
 
-            if (!String.IsNullOrEmpty(config.TmdbApiKey) && !String.IsNullOrEmpty(config.ProwlarrApiKey) && !String.IsNullOrEmpty(config.ProwlarrBaseUrl)) return;
+            bool hasSmtpField = !string.IsNullOrEmpty(config.SmtpHost) ||
+                        !string.IsNullOrEmpty(config.SmtpUsername) ||
+                        !string.IsNullOrEmpty(config.SmtpPassword) ||
+                        config.SmtpPort.HasValue;
+
+            bool allSmtpFieldsFilled = !string.IsNullOrEmpty(config.SmtpHost) &&
+                                       !string.IsNullOrEmpty(config.SmtpUsername) &&
+                                       !string.IsNullOrEmpty(config.SmtpPassword) &&
+                                       config.SmtpPort.HasValue;
+
+            if (hasSmtpField && !allSmtpFieldsFilled)
+            {
+                SMTPHostErrorMsg.Visible = true;
+                SMTPPassErrorMsg.Visible = true;
+                SMTPUsernameErrorMsg.Visible = true;
+                SMTPPortErrorMsg.Visible = true;
+                SMTPEmailErrorMsg.Visible = true;
+            }
+
+            if (String.IsNullOrEmpty(config.TmdbApiKey)) return;
+            if (String.IsNullOrEmpty(config.ProwlarrApiKey) && String.IsNullOrEmpty(config.ProwlarrBaseUrl)) return;
 
             if (ConfigManager.SaveConfig(config))
             {
@@ -406,9 +441,59 @@ namespace JellyFlix_MediaHub.UI
             }
         }
 
-        private void CheckMarkBox_Click(object sender, EventArgs e)
+        private async void CheckMarkBox_Click(object sender, EventArgs e)
         {
+            var config = ConfigManager.LoadConfig();
+            if (!config.SmtpConfigured)
+            {
+                MsgBox.Caption = "SMTP Not Configured";
+                MsgBox.Text = "Please configure SMTP settings in the Server Config section first or Ask an Admin to Setup first.";
+                MsgBox.Icon = MessageDialogIcon.Warning;
+                MsgBox.Buttons = MessageDialogButtons.OK;
+                MsgBox.Show();
+                return;
+            }
 
+            string invite_code = SMTPService.GenerateInviteCode();
+
+            CheckMarkBox.Enabled = false;
+            InviteEmailTextBox.Enabled = false;
+            CheckMarkBox.Cursor = Cursors.WaitCursor;
+
+            try
+            {
+                SMTPService smtp_service = new SMTPService();
+
+                if (await smtp_service.SendInvitationEmail(InviteEmailTextBox.Text.Trim(), invite_code))
+                {
+                    CheckMarkBox.Image = Properties.Resources.green_check_solid;
+                    Timer green_timer = new Timer();
+                    green_timer.Interval = 60 * 1000;
+                    green_timer.Tick += (s, args) =>
+                    {
+                        CheckMarkBox.Image = Properties.Resources.check_solid;
+                    };
+                    green_timer.Start();
+                    InviteEmailTextBox.Clear();
+                }
+                else
+                {
+                    MsgBox.Caption = "Error";
+                    MsgBox.Text = "Failed to send invitation email. Please check your SMTP settings and try again.";
+                    MsgBox.Icon = MessageDialogIcon.Error;
+                    MsgBox.Buttons = MessageDialogButtons.OK;
+                    MsgBox.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error sending invitation email: {ex.Message}");
+            }
+            finally
+            {
+                CheckMarkBox.Enabled = true;
+                InviteEmailTextBox.Enabled = true;
+            }
         }
     }
 }
