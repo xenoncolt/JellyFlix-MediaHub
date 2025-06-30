@@ -47,14 +47,6 @@
             this.SettingsTab = new System.Windows.Forms.TabPage();
             this.SettingsMenu = new Guna.UI2.WinForms.Guna2TabControl();
             this.UserSettingsPage = new System.Windows.Forms.TabPage();
-            this.guna2GradientPanel4 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2HtmlLabel5 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2GradientPanel3 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2HtmlLabel4 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2HtmlLabel3 = new Guna.UI2.WinForms.Guna2HtmlLabel();
-            this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-            this.guna2HtmlLabel2 = new Guna.UI2.WinForms.Guna2HtmlLabel();
             this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.ServerSettingsPage = new System.Windows.Forms.TabPage();
             this.SMTPPortErrorMsg = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -111,10 +103,6 @@
             this.SettingsTab.SuspendLayout();
             this.SettingsMenu.SuspendLayout();
             this.UserSettingsPage.SuspendLayout();
-            this.guna2GradientPanel4.SuspendLayout();
-            this.guna2GradientPanel3.SuspendLayout();
-            this.guna2GradientPanel2.SuspendLayout();
-            this.guna2GradientPanel1.SuspendLayout();
             this.ServerSettingsPage.SuspendLayout();
             this.UsersTab.SuspendLayout();
             this.UserListPanel.SuspendLayout();
@@ -244,6 +232,7 @@
             this.SearchBox.SelectedText = "";
             this.SearchBox.Size = new System.Drawing.Size(908, 32);
             this.SearchBox.TabIndex = 1;
+            this.SearchBox.Leave += new System.EventHandler(this.SearchBox_Leave);
             // 
             // ProfileBox
             // 
@@ -359,10 +348,6 @@
             // UserSettingsPage
             // 
             this.UserSettingsPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(63)))));
-            this.UserSettingsPage.Controls.Add(this.guna2GradientPanel4);
-            this.UserSettingsPage.Controls.Add(this.guna2GradientPanel3);
-            this.UserSettingsPage.Controls.Add(this.guna2GradientPanel2);
-            this.UserSettingsPage.Controls.Add(this.guna2GradientPanel1);
             this.UserSettingsPage.Controls.Add(this.guna2Panel1);
             this.UserSettingsPage.Location = new System.Drawing.Point(4, 44);
             this.UserSettingsPage.Name = "UserSettingsPage";
@@ -370,82 +355,6 @@
             this.UserSettingsPage.Size = new System.Drawing.Size(1088, 621);
             this.UserSettingsPage.TabIndex = 0;
             this.UserSettingsPage.Text = "User Settings";
-            // 
-            // guna2GradientPanel4
-            // 
-            this.guna2GradientPanel4.Controls.Add(this.guna2HtmlLabel5);
-            this.guna2GradientPanel4.Location = new System.Drawing.Point(37, 376);
-            this.guna2GradientPanel4.Name = "guna2GradientPanel4";
-            this.guna2GradientPanel4.Size = new System.Drawing.Size(463, 190);
-            this.guna2GradientPanel4.TabIndex = 2;
-            // 
-            // guna2HtmlLabel5
-            // 
-            this.guna2HtmlLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel5.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(237)))));
-            this.guna2HtmlLabel5.Location = new System.Drawing.Point(42, 48);
-            this.guna2HtmlLabel5.Name = "guna2HtmlLabel5";
-            this.guna2HtmlLabel5.Size = new System.Drawing.Size(137, 40);
-            this.guna2HtmlLabel5.TabIndex = 1;
-            this.guna2HtmlLabel5.Text = "Your Ivite ";
-            // 
-            // guna2GradientPanel3
-            // 
-            this.guna2GradientPanel3.Controls.Add(this.guna2HtmlLabel4);
-            this.guna2GradientPanel3.Location = new System.Drawing.Point(560, 376);
-            this.guna2GradientPanel3.Name = "guna2GradientPanel3";
-            this.guna2GradientPanel3.Size = new System.Drawing.Size(463, 190);
-            this.guna2GradientPanel3.TabIndex = 2;
-            // 
-            // guna2HtmlLabel4
-            // 
-            this.guna2HtmlLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel4.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(237)))));
-            this.guna2HtmlLabel4.Location = new System.Drawing.Point(42, 48);
-            this.guna2HtmlLabel4.Name = "guna2HtmlLabel4";
-            this.guna2HtmlLabel4.Size = new System.Drawing.Size(137, 40);
-            this.guna2HtmlLabel4.TabIndex = 1;
-            this.guna2HtmlLabel4.Text = "Your Ivite ";
-            // 
-            // guna2GradientPanel2
-            // 
-            this.guna2GradientPanel2.Controls.Add(this.guna2HtmlLabel3);
-            this.guna2GradientPanel2.Location = new System.Drawing.Point(560, 121);
-            this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(463, 190);
-            this.guna2GradientPanel2.TabIndex = 2;
-            // 
-            // guna2HtmlLabel3
-            // 
-            this.guna2HtmlLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel3.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(237)))));
-            this.guna2HtmlLabel3.Location = new System.Drawing.Point(42, 48);
-            this.guna2HtmlLabel3.Name = "guna2HtmlLabel3";
-            this.guna2HtmlLabel3.Size = new System.Drawing.Size(137, 40);
-            this.guna2HtmlLabel3.TabIndex = 1;
-            this.guna2HtmlLabel3.Text = "Your Ivite ";
-            // 
-            // guna2GradientPanel1
-            // 
-            this.guna2GradientPanel1.Controls.Add(this.guna2HtmlLabel2);
-            this.guna2GradientPanel1.Location = new System.Drawing.Point(37, 121);
-            this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-            this.guna2GradientPanel1.Size = new System.Drawing.Size(463, 190);
-            this.guna2GradientPanel1.TabIndex = 2;
-            // 
-            // guna2HtmlLabel2
-            // 
-            this.guna2HtmlLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.guna2HtmlLabel2.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.guna2HtmlLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(244)))), ((int)(((byte)(237)))));
-            this.guna2HtmlLabel2.Location = new System.Drawing.Point(42, 48);
-            this.guna2HtmlLabel2.Name = "guna2HtmlLabel2";
-            this.guna2HtmlLabel2.Size = new System.Drawing.Size(137, 40);
-            this.guna2HtmlLabel2.TabIndex = 1;
-            this.guna2HtmlLabel2.Text = "Your Ivite ";
             // 
             // guna2Panel1
             // 
@@ -1039,15 +948,18 @@
             // 
             // TrendingTab
             // 
+            this.TrendingTab.AutoScroll = true;
             this.TrendingTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(63)))));
             this.TrendingTab.Location = new System.Drawing.Point(174, 4);
             this.TrendingTab.Name = "TrendingTab";
             this.TrendingTab.Size = new System.Drawing.Size(1102, 675);
             this.TrendingTab.TabIndex = 4;
-            this.TrendingTab.Text = "Trending";
+            this.TrendingTab.Text = "Top Trending";
+            this.TrendingTab.Click += new System.EventHandler(this.TrendingTab_Click);
             // 
             // SeriesTab
             // 
+            this.SeriesTab.AutoScroll = true;
             this.SeriesTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(63)))));
             this.SeriesTab.Location = new System.Drawing.Point(174, 4);
             this.SeriesTab.Name = "SeriesTab";
@@ -1058,6 +970,7 @@
             // 
             // MovieTab
             // 
+            this.MovieTab.AutoScroll = true;
             this.MovieTab.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(33)))), ((int)(((byte)(63)))));
             this.MovieTab.Location = new System.Drawing.Point(174, 4);
             this.MovieTab.Name = "MovieTab";
@@ -1065,6 +978,7 @@
             this.MovieTab.Size = new System.Drawing.Size(1102, 675);
             this.MovieTab.TabIndex = 1;
             this.MovieTab.Text = "Movies";
+            this.MovieTab.Click += new System.EventHandler(this.MovieTab_Click);
             // 
             // NavMenu
             // 
@@ -1217,6 +1131,7 @@
             this.Name = "MainMenu";
             this.Text = "MainMenu";
             this.Load += new System.EventHandler(this.MainMenu_Load);
+            this.SizeChanged += new System.EventHandler(this.MainMenu_SizeChanged);
             this.TabBar.ResumeLayout(false);
             this.HeadingSection.ResumeLayout(false);
             this.HeadingSection.PerformLayout();
@@ -1224,14 +1139,6 @@
             this.SettingsTab.ResumeLayout(false);
             this.SettingsMenu.ResumeLayout(false);
             this.UserSettingsPage.ResumeLayout(false);
-            this.guna2GradientPanel4.ResumeLayout(false);
-            this.guna2GradientPanel4.PerformLayout();
-            this.guna2GradientPanel3.ResumeLayout(false);
-            this.guna2GradientPanel3.PerformLayout();
-            this.guna2GradientPanel2.ResumeLayout(false);
-            this.guna2GradientPanel2.PerformLayout();
-            this.guna2GradientPanel1.ResumeLayout(false);
-            this.guna2GradientPanel1.PerformLayout();
             this.ServerSettingsPage.ResumeLayout(false);
             this.ServerSettingsPage.PerformLayout();
             this.UsersTab.ResumeLayout(false);
@@ -1300,14 +1207,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel InviteEmailLabel;
         private Guna.UI2.WinForms.Guna2TextBox InviteEmailTextBox;
         private Guna.UI2.WinForms.Guna2HtmlLabel InviteEmailErrorMsg;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel2;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel4;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel5;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel3;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel4;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
-        private Guna.UI2.WinForms.Guna2HtmlLabel guna2HtmlLabel3;
-        private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2CirclePictureBox CheckMarkBox;
         private Guna.UI2.WinForms.Guna2HtmlLabel SMTPPortErrorMsg;

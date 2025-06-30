@@ -15,9 +15,6 @@ namespace JellyFlix_MediaHub.Models
         public int? SmtpPort { get; set; }
         public string SmtpUsername { get; set; }
         public string SmtpPassword { get; set; }
-        public bool SmtpConfigured => !string.IsNullOrEmpty(SmtpHost) &&
-                             SmtpPort.HasValue &&
-                             !string.IsNullOrEmpty(SmtpUsername) &&
-                             !string.IsNullOrEmpty(SmtpPassword);
+        public bool SmtpConfigured => !string.IsNullOrEmpty(SmtpHost) && SmtpPort.HasValue && !string.IsNullOrEmpty(SmtpUsername) && !string.IsNullOrEmpty(SmtpPassword);
     }
 }

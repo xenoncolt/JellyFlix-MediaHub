@@ -1,42 +1,42 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace JellyFlix_MediaHub.Services.Prowlarr
 {
-    internal class ProwlarrValidation
+    internal static class ProwlarrValidation
     {
-        public static async Task<bool> ValidateApiKey(string base_url, string api_key)
+        private static readonly HttpClient httpClient = new HttpClient() { Timeout = TimeSpan.FromSeconds(15) };
+
+        public static async Task<bool> ValidateApiKey(string baseUrl, string apiKey)
         {
             try
             {
-                if (!base_url.EndsWith("/"))
-                {
-                    base_url += "/";
-                }
-
-                using (HttpClient client = new HttpClient())
-                {
-                    string url = $"{base_url}api/v1/system/status";
-
-                    var request = new HttpRequestMessage(HttpMethod.Get, url);
-                    request.Headers.Add("X-Api-Key", api_key);
-
-                    var response = await client.SendAsync(request);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        var content = await response.Content.ReadAsStringAsync();
-                        return !string.IsNullOrEmpty(content) && content.Contains("version");
-                    }
-
+                if (string.IsNullOrEmpty(baseUrl) || string.IsNullOrEmpty(apiKey))
                     return false;
+
+                string url = baseUrl.EndsWith("/") ? baseUrl : baseUrl + "/";
+                url += "api/v1/system/status";
+
+                var request = new HttpRequestMessage(HttpMethod.Get, url);
+                request.Headers.Add("X-Api-Key", apiKey);
+                request.Headers.Add("User-Agent", "JellyFlix-MediaHub/1.0");
+
+                using (var cts = new CancellationTokenSource(TimeSpan.FromSeconds(10)))
+                {
+                    var response = await httpClient.SendAsync(request, cts.Token);
+                    return response.IsSuccessStatusCode;
                 }
-            } catch (Exception)
+            }
+            catch (TaskCanceledException)
             {
+                Console.WriteLine("Prowlarr validation timeout");
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Prowlarr validation error: {ex.Message}");
                 return false;
             }
         }

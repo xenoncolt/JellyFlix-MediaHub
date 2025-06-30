@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="DBServer" Type="System.String" Scope="User">
-      <Value Profile="(Default)">10.0.0.111,60001</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="DBName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
@@ -12,6 +12,14 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="DBPassword" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="JellyflixMediaHubDBConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;ConnectionString /&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

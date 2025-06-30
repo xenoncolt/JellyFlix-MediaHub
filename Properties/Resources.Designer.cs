@@ -83,6 +83,16 @@ namespace JellyFlix_MediaHub.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap check_solid {
+            get {
+                object obj = ResourceManager.GetObject("check-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap eye_slash_solid {
             get {
                 object obj = ResourceManager.GetObject("eye-slash-solid", resourceCulture);
@@ -103,9 +113,29 @@ namespace JellyFlix_MediaHub.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap green_check_solid {
+            get {
+                object obj = ResourceManager.GetObject("green-check-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap magnifying_glass_solid {
             get {
                 object obj = ResourceManager.GetObject("magnifying-glass-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap movie_placeholder {
+            get {
+                object obj = ResourceManager.GetObject("movie_placeholder", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

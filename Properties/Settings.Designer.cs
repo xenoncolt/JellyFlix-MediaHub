@@ -25,7 +25,7 @@ namespace JellyFlix_MediaHub.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("10.0.0.111,60001")]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
         public string DBServer {
             get {
                 return ((string)(this["DBServer"]));
@@ -68,6 +68,15 @@ namespace JellyFlix_MediaHub.Properties {
             }
             set {
                 this["DBPassword"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        public string JellyflixMediaHubDBConnectionString {
+            get {
+                return ((string)(this["JellyflixMediaHubDBConnectionString"]));
             }
         }
     }
